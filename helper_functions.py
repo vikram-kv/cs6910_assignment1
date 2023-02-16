@@ -65,14 +65,28 @@ def apply_act_fn_hidden_layer(act_values : np.array, act_fn : str):
     return out_values, out_derivs
 
 # NOTE - thinking of 3d matrix. may need to switch to dictionary of matrices to accomodate diff no of neurons in each layer
-# weights[i] -> matrix of weights of layer i (with jth row = weights of jth neuron), bias[i] -> bias for layer i (with jth entry
+# weights[i] -> matrix of weights of layer i (with jth row = weights of jth neuron), biases[i] -> bias for layer i (with jth entry
 # as bias for neuron j)
-def forward_one_layer(weights, bias, layeridx : int, input : int, act_fn = None):
-    act_values = (weights[layeridx] @ input + bias[layeridx])
+def forward_one_layer(weights, biases, layeridx : int, input : int, act_fn = None):
+    act_values = (weights[layeridx] @ input + biases[layeridx])
     outvalues, outderivs = None, None
     if act_fn != None:
         outvalues, outderivs  = apply_act_fn_hidden_layer(act_values, act_fn)
     return act_values, outvalues, outderivs
+
+def calculate_loss(loss_fn : str, y_pred : np.array, true_label):
+    loss = 0.0
+    if (loss_fn == 'cross_entropy'):
+        loss = -np.log2(y_pred[true_label])
+    elif (loss_fn == 'mean_squared_error'):
+        one_hot = np.zeros(y_pred.shape)
+        one_hot[true_label] = 1.0
+        diff = one_hot - y_pred
+        loss = diff.dot(diff)
+        loss /= diff.shape[0]
+    else:
+        raise Exception('Loss Function Not Implemented'); exit(-1)
+    return loss
 
 ### BACKWARD PASS HELPERS ###
 
@@ -80,8 +94,7 @@ def forward_one_layer(weights, bias, layeridx : int, input : int, act_fn = None)
 def loss_grad_fl_outputs(loss_fn : str, fl_output : str, true_lbl = None):
     ans = np.zeros(fl_output.shape)
     if (loss_fn == 'cross_entropy'):
-        ans[true_lbl] = 1.0
-        ans *= -1.0/(fl_output[true_lbl])
+        ans[true_lbl] = -1.0/(fl_output[true_lbl])
     elif (loss_fn == 'mean_squared_error'):
         sz = ans.shape[0]
         for i in range(sz):
@@ -100,14 +113,19 @@ def loss_grad_fl_layer_act_values(loss_fn : str, true_lbl : int, fl_output : np.
     output_grad = loss_grad_fl_outputs(loss_fn, fl_output, true_lbl)
     ans = np.multiply(fl_output,output_grad)
     factor = np.dot(fl_output, output_grad)
-    ans -= factor * (fl_output)
+    ans -= np.multiply(factor, fl_output)
     return ans
 
 # computes the loss gradient wrt layer outputs of HIDDEN layer with index = layeridx
 def loss_grad_hd_layer_output_values(layeridx : int, weights, loss_grad_act_values_next_layer : np.array):
-    return np.transpose(weights[layeridx + 1]) @ (loss_grad_act_values_next_layer)
+    return (np.transpose(weights[layeridx + 1]) @ (loss_grad_act_values_next_layer))
 
 # computes the loss gradient wrt act values of a hidden layer given the loss gradient wrt its output and 
 # act function derivatives at the act values
 def loss_grad_hd_layer_act_values(loss_grad_cur_layer_hd_output : np.array, cur_layer_act_fn_deriv : np.array):
     return np.multiply(loss_grad_cur_layer_hd_output, cur_layer_act_fn_deriv)
+
+def compute_parameter_derivatives(loss_grad_act_values_cur_layer : np.array, prev_layer_out : np.array):
+    weight_grads = np.outer(loss_grad_act_values_cur_layer, prev_layer_out)
+    bias_grads = np.copy(loss_grad_act_values_cur_layer)
+    return weight_grads, bias_grads

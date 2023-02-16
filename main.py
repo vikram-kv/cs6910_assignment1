@@ -1,11 +1,7 @@
 import numpy as np
-from activation_functions import *
+from helper_functions import *
 import argparser
 import wandb
-
-
-
-
 
 # change default values to reflect best results later
 if __name__ == '__main__':

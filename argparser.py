@@ -18,7 +18,7 @@ def gen_parser():
     parser.add_argument('-eps', '--epsilon', dest='eps', default=0.000001, type=float, help='Epsilon used by optimizers')
     parser.add_argument('-w_d', '--weight_decay', dest='w_d', default=.0, type=float, help='Weight decay used by optimizers')
     parser.add_argument('-w_i', '--weight_init', dest='w_i', default='random', choices=['random', 'Xavier'], help='Weight initialization method to be used')
-    parser.add_argument('-nhl', '--num_layers', dest='num_layers', default=1, type=int, help='Number of hidden layers used in feedforward neural network')
+    parser.add_argument('-nhl', '--num_layers', dest='num_hidden_layers', default=1, type=int, help='Number of hidden layers used in feedforward neural network')
     parser.add_argument('-sz', '--hidden_size', dest='hidden_size', default=4, type=float, help='Number of hidden neurons in a feedforward layer')
     parser.add_argument('-a', '--activation', dest='act_func', default='sigmoid', choices=['identity', 'sigmoid', 'tanh', 'ReLU'], help='Activation function to be used')
     return parser
