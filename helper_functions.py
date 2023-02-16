@@ -58,8 +58,8 @@ def safe_softmax(input : np.array):
 # also returns the derivative of the act function at those activation values as a vector
 def apply_act_fn_hidden_layer(act_values : np.array, act_fn : str):
     f, df = get_act_func_and_deriv(act_fn)
-    out_values, out_derivs = np.copy(input), np.copy(input)
-    for i in range(input.shape[0]):
+    out_values, out_derivs = np.copy(act_values), np.copy(act_values)
+    for i in range(act_values.shape[0]):
         out_values[i] = f(act_values[i])
         out_derivs[i] = df(act_values[i])
     return out_values, out_derivs

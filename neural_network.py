@@ -1,5 +1,6 @@
 from helper_functions import *
 import numpy as np
+import time
 
 class NeuralNetwork:
     def __init__(self, args, num_classes, in_dim):
@@ -32,14 +33,15 @@ class NeuralNetwork:
         if self.init_method == 'Xavier':
             pass
         else:
+            np.random.seed(42)
             for idx in range(1, self.hlayercount + 1):
                 self.weights[idx] = np.random.randn(self.hidden_sizes[idx], self.hidden_sizes[idx - 1])
                 self.biases[idx] = np.random.randn(self.hidden_sizes[idx])
             
             # for output layer
             outidx = self.hlayercount + 1
-            self.weights[outidx] = np.random.randn(self.hidden_sizes[outidx], self.hidden_sizes[outidx - 1])
-            self.biases[outidx] = np.random.randn(self.hidden_sizes[outidx])
+            self.weights[outidx] = np.random.randn(self.out_layer_size, self.hidden_sizes[outidx - 1])
+            self.biases[outidx] = np.random.randn(self.out_layer_size)
 
     def forward(self, input : np.array, true_label):
         incopy = np.copy(input)
@@ -57,6 +59,8 @@ class NeuralNetwork:
 
     def backward(self, true_label):
         self.loss_grad_act[self.hlayercount + 1] = loss_grad_fl_layer_act_values(self.loss_fn, true_label, self.out_values[self.hlayercount + 1])
+        ow, ob = compute_parameter_derivatives(self.loss_grad_act[self.hlayercount + 1], self.out_values[self.hlayercount])
+        self.weight_changes[self.hlayercount + 1], self.biases_changes[self.hlayercount + 1] = ow, ob
         for idx in range(self.hlayercount, 0, -1):
             self.loss_grad_outputs[idx] = loss_grad_hd_layer_output_values(idx, self.weights, self.loss_grad_act[idx+1])
             self.loss_grad_act[idx] = loss_grad_hd_layer_act_values(self.loss_grad_outputs[idx], self.out_derivs[idx])
@@ -66,8 +70,8 @@ class NeuralNetwork:
     def update_parameters(self, learning_rate, agg_weight_changes, agg_bias_changes):
         eta = learning_rate
         for idx in range(1, self.hlayercount + 2):
-            self.weights[idx] = - eta * agg_weight_changes[idx]
-            self.biases[idx] = - eta * agg_bias_changes[idx]
+            self.weights[idx] -= eta * agg_weight_changes[idx]
+            self.biases[idx] -= eta * agg_bias_changes[idx]
 
     def refresh_aggregates(self):
         agg_weight_changes = dict()
@@ -75,30 +79,37 @@ class NeuralNetwork:
         agg_loss = 0.0
         agg_correct = 0
         for idx in self.weights:
-            agg_weight_changes[idx] = np.zeros(self.weights[idx])
-            agg_biases_changes[idx] = np.zeros(self.biases[idx])
+            agg_weight_changes[idx] = np.zeros(self.weights[idx].shape)
+            agg_biases_changes[idx] = np.zeros(self.biases[idx].shape)
         return agg_weight_changes, agg_biases_changes, agg_loss, agg_correct
 
     def test(self, val_data):
-        val_X, val_y = val_data
-        total_count = val_y.shape[0]
+        val_X, val_y = zip(*val_data)
+        val_X = list(val_X); val_y = list(val_y)
+        total_count = 0
         total_correct = 0
         total_loss = 0.0
 
         for X, y in zip(val_X, val_y):
             self.forward(X, y)
             total_loss += self.loss
-            y_pred = np.amax(self.out_values[self.hlayercount + 1])
+            y_pred = np.argmax(self.out_values[self.hlayercount + 1])
+            total_count += 1
             if (y == y_pred):
                 total_correct += 1
+
         acc = total_correct / total_count
         print(f'accuracy = {acc}; loss = {total_loss}')
         return acc, total_loss
             
     # NOTE - ensure batch size divides total train data size
     def train(self, train_data, val_data, epochs, batchsize, learning_rate):
-        train_X, train_y = train_data
+        train_X, train_y = zip(*train_data)
+        train_X = list(train_X); train_y = list(train_y)
+
         for i in range(epochs):
+            print(f'EPOCH - {i}')
+            batch_count = 0
             num_samples = 0
             agg_weight_changes, agg_biases_changes, agg_loss, agg_crct = self.refresh_aggregates()
             for X, y in zip(train_X, train_y):
@@ -119,5 +130,8 @@ class NeuralNetwork:
                     self.update_parameters(learning_rate, agg_weight_changes, agg_biases_changes)
                     num_samples = 0
                     agg_weight_changes, agg_biases_changes, agg_loss, agg_crct = self.refresh_aggregates()
-                    _, _ = self.test(val_data)
+                    batch_count += 1
+                    if (batch_count % 1000 == 0):
+                        _, _ = self.test(val_data)
+
 
