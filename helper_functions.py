@@ -107,25 +107,26 @@ def loss_grad_fl_outputs(loss_fn : str, fl_output : str, true_lbl = None):
         raise Exception('Loss Function Not Implemented'); exit(-1)
     return ans
 
-# NOTE - confirm once if we take softmax even for MSE loss
-# returns the gradient of the loss wrt the activation values of the final layer
-def loss_grad_fl_layer_act_values(loss_fn : str, true_lbl : int, fl_output : np.array):
-    output_grad = loss_grad_fl_outputs(loss_fn, fl_output, true_lbl)
-    ans = np.multiply(fl_output,output_grad)
-    factor = np.dot(fl_output, output_grad)
-    ans -= np.multiply(factor, fl_output)
-    return ans
+# redundant - added directly to backward
+# # NOTE - confirm once if we take softmax even for MSE loss
+# # returns the gradient of the loss wrt the activation values of the final layer
+# def loss_grad_fl_layer_act_values(loss_fn : str, true_lbl : int, fl_output : np.array):
+#     output_grad = loss_grad_fl_outputs(loss_fn, fl_output, true_lbl)
+#     ans = np.multiply(fl_output,output_grad)
+#     factor = np.dot(fl_output, output_grad)
+#     ans -= np.multiply(factor, fl_output)
+#     return ans
 
-# computes the loss gradient wrt layer outputs of HIDDEN layer with index = layeridx
-def loss_grad_hd_layer_output_values(layeridx : int, weights, loss_grad_act_values_next_layer : np.array):
-    return (np.transpose(weights[layeridx + 1]) @ (loss_grad_act_values_next_layer))
+# # computes the loss gradient wrt layer outputs of HIDDEN layer with index = layeridx
+# def loss_grad_hd_layer_output_values(layeridx : int, weights, loss_grad_act_values_next_layer : np.array):
+#     return (np.transpose(weights[layeridx + 1]) @ (loss_grad_act_values_next_layer))
 
-# computes the loss gradient wrt act values of a hidden layer given the loss gradient wrt its output and 
-# act function derivatives at the act values
-def loss_grad_hd_layer_act_values(loss_grad_cur_layer_hd_output : np.array, cur_layer_act_fn_deriv : np.array):
-    return np.multiply(loss_grad_cur_layer_hd_output, cur_layer_act_fn_deriv)
+# # computes the loss gradient wrt act values of a hidden layer given the loss gradient wrt its output and 
+# # act function derivatives at the act values
+# def loss_grad_hd_layer_act_values(loss_grad_cur_layer_hd_output : np.array, cur_layer_act_fn_deriv : np.array):
+#     return np.multiply(loss_grad_cur_layer_hd_output, cur_layer_act_fn_deriv)
 
-def compute_parameter_derivatives(loss_grad_act_values_cur_layer : np.array, prev_layer_out : np.array):
-    weight_grads = np.outer(loss_grad_act_values_cur_layer, prev_layer_out)
-    bias_grads = np.copy(loss_grad_act_values_cur_layer)
-    return weight_grads, bias_grads
+# def compute_parameter_derivatives(loss_grad_act_values_cur_layer : np.array, prev_layer_out : np.array):
+#     weight_grads = np.outer(loss_grad_act_values_cur_layer, prev_layer_out)
+#     bias_grads = np.copy(loss_grad_act_values_cur_layer)
+#     return weight_grads, bias_grads

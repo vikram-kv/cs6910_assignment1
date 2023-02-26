@@ -20,13 +20,6 @@ class NeuralNetwork:
     def create_dicts(self):
         self.weights = dict()
         self.biases = dict()
-        self.act_values = dict()
-        self.out_values = dict()
-        self.out_derivs = dict()
-        self.loss_grad_act = dict()
-        self.loss_grad_outputs = dict()
-        self.weight_changes = dict()
-        self.biases_changes = dict()
 
     # implement Xavier initialization
     def init_parameters(self):
@@ -45,26 +38,42 @@ class NeuralNetwork:
 
     def forward(self, input : np.array, true_label):
         incopy = np.copy(input)
-        self.out_values[0] = incopy
+        outvalues, outderivs, actvalues = dict(), dict(), dict()
+        outvalues[0] = incopy
+
         for idx in range(1, self.hlayercount + 1):
             l, m, n = forward_one_layer(self.weights, self.biases, idx, incopy, self.act_fn[idx])
-            self.act_values[idx], self.out_values[idx], self.out_derivs[idx] = l, m, n
+            actvalues[idx], outvalues[idx], outderivs[idx] = l, m, n
             incopy = np.copy(m)
         
         # final layer - get act values and compute loss
-        l, _, _ = forward_one_layer(self.weights, self.biases, self.hlayercount + 1, incopy)
-        self.act_values[self.hlayercount + 1] = l
-        m = self.out_values[self.hlayercount + 1] = safe_softmax(l)
-        self.loss = calculate_loss(self.loss_fn, m, true_label)
+        actvalues[self.hlayercount + 1], _, _ = forward_one_layer(self.weights, self.biases, self.hlayercount + 1, incopy, None)
+        outvalues[self.hlayercount + 1] = safe_softmax(actvalues[self.hlayercount + 1])
+        loss = calculate_loss(self.loss_fn, outvalues[self.hlayercount + 1], true_label)
 
-    def backward(self, true_label):
-        self.loss_grad_act[self.hlayercount + 1] = loss_grad_fl_layer_act_values(self.loss_fn, true_label, self.out_values[self.hlayercount + 1])
-        ow, ob = compute_parameter_derivatives(self.loss_grad_act[self.hlayercount + 1], self.out_values[self.hlayercount])
-        self.weight_changes[self.hlayercount + 1], self.biases_changes[self.hlayercount + 1] = ow, ob
+        return outvalues, outderivs, loss
+
+    def backward(self, true_label, outvalues, outderivs, weights):
+        weight_gradients, bias_gradients = dict(), dict() # to be returned
+        loss_grad_act_values = dict() # temporary within this function
+        loss_grad_outputs = dict()
+
+        final_layer_output = outvalues[self.hlayercount + 1]
+
+        loss_grad_final_output = loss_grad_fl_outputs(self.loss_fn, final_layer_output, true_label)
+        factor = np.dot(final_layer_output, loss_grad_final_output)
+        loss_grad_act_values[self.hlayercount + 1] = np.multiply(final_layer_output, loss_grad_final_output) - factor * final_layer_output
+
+        weight_gradients[self.hlayercount + 1]  = np.outer(loss_grad_act_values[self.hlayercount + 1], outvalues[self.hlayercount])
+        bias_gradients[self.hlayercount + 1] = np.copy(loss_grad_act_values[self.hlayercount + 1])
+
         for idx in range(self.hlayercount, 0, -1):
-            self.loss_grad_outputs[idx] = loss_grad_hd_layer_output_values(idx, self.weights, self.loss_grad_act[idx+1])
-            self.loss_grad_act[idx] = loss_grad_hd_layer_act_values(self.loss_grad_outputs[idx], self.out_derivs[idx])
-            self.weight_changes[idx], self.biases_changes[idx] = compute_parameter_derivatives(self.loss_grad_act[idx], self.out_values[idx-1])
+            loss_grad_outputs[idx] = np.transpose(weights[idx + 1]) @ (loss_grad_act_values[idx+1])
+            loss_grad_act_values[idx] = np.multiply(loss_grad_outputs[idx], outderivs[idx])
+            weight_gradients[idx]  = np.outer(loss_grad_act_values[idx], outvalues[idx-1])
+            bias_gradients[idx] = np.copy(loss_grad_act_values[idx])
+        
+        return weight_gradients, bias_gradients
 
     # need to include optimizers here onwards
     def update_parameters(self, learning_rate, agg_weight_changes, agg_bias_changes):
@@ -91,9 +100,9 @@ class NeuralNetwork:
         total_loss = 0.0
 
         for X, y in zip(val_X, val_y):
-            self.forward(X, y)
-            total_loss += self.loss
-            y_pred = np.argmax(self.out_values[self.hlayercount + 1])
+            outvalues, outderivs, loss = self.forward(X, y)
+            total_loss += loss
+            y_pred = np.argmax(outvalues[self.hlayercount + 1])
             total_count += 1
             if (y == y_pred):
                 total_correct += 1
@@ -113,17 +122,18 @@ class NeuralNetwork:
             num_samples = 0
             agg_weight_changes, agg_biases_changes, agg_loss, agg_crct = self.refresh_aggregates()
             for X, y in zip(train_X, train_y):
-                self.forward(X, y)
-                y_pred = np.amax(self.out_values[self.hlayercount + 1])
-                self.backward(y)
+                outvalues, outderivs, loss = self.forward(X, y)
+                y_pred = np.amax(outvalues[self.hlayercount + 1])
+                weight_gradients, bias_gradients = self.backward(y, outvalues, outderivs, self.weights)
                 num_samples += 1
-                agg_loss += self.loss
+                agg_loss += loss
+
                 if (y_pred == y):
                     agg_crct += 1
 
-                for idx in self.weight_changes:
-                    agg_weight_changes[idx] += self.weight_changes[idx]
-                    agg_biases_changes[idx] += self.biases_changes[idx]
+                for idx in range(1, self.hlayercount + 2):
+                    agg_weight_changes[idx] += weight_gradients[idx]
+                    agg_biases_changes[idx] += bias_gradients[idx]
 
                 if (num_samples % batchsize == 0):
                     # make log
@@ -133,5 +143,3 @@ class NeuralNetwork:
                     batch_count += 1
                     if (batch_count % 1000 == 0):
                         _, _ = self.test(val_data)
-
-
