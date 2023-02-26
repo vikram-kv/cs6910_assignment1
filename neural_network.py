@@ -1,6 +1,7 @@
 from helper_functions import *
 import numpy as np
 import time
+from optimization_functions import *
 
 class NeuralNetwork:
     def __init__(self, args, num_classes, in_dim):
@@ -13,47 +14,56 @@ class NeuralNetwork:
         self.out_layer_size = num_classes
         self.in_layer_size = in_dim
         self.hidden_sizes[0] = in_dim # for ease later
-        self.create_dicts()
-        self.init_parameters()
-        pass
-    
-    def create_dicts(self):
-        self.weights = dict()
-        self.biases = dict()
 
+        if (args.opt == 'sgd'):
+            self.optimizer = sgd(self, args)
+        elif (args.opt == 'momentum'):
+            self.optimizer = momentum(self, args)
+        elif (args.opt == 'nag'):
+            self.optimizer = nag(self, args)
+            pass
+        elif (args.opt == 'rmsprop'):
+            pass
+        elif (args.opt == 'adam'):
+            pass
+        elif (args.opt == 'nadam'):
+            pass
+        
     # implement Xavier initialization
     def init_parameters(self):
+        weights, biases = dict(), dict()
         if self.init_method == 'Xavier':
             pass
         else:
             np.random.seed(42)
             for idx in range(1, self.hlayercount + 1):
-                self.weights[idx] = np.random.randn(self.hidden_sizes[idx], self.hidden_sizes[idx - 1])
-                self.biases[idx] = np.random.randn(self.hidden_sizes[idx])
+                weights[idx] = np.random.randn(self.hidden_sizes[idx], self.hidden_sizes[idx - 1])
+                biases[idx] = np.random.randn(self.hidden_sizes[idx])
             
             # for output layer
             outidx = self.hlayercount + 1
-            self.weights[outidx] = np.random.randn(self.out_layer_size, self.hidden_sizes[outidx - 1])
-            self.biases[outidx] = np.random.randn(self.out_layer_size)
+            weights[outidx] = np.random.randn(self.out_layer_size, self.hidden_sizes[outidx - 1])
+            biases[outidx] = np.random.randn(self.out_layer_size)
+        return weights, biases
 
-    def forward(self, input : np.array, true_label):
+    def forward(self, weights, biases, input : np.array, true_label):
         incopy = np.copy(input)
         outvalues, outderivs, actvalues = dict(), dict(), dict()
         outvalues[0] = incopy
 
         for idx in range(1, self.hlayercount + 1):
-            l, m, n = forward_one_layer(self.weights, self.biases, idx, incopy, self.act_fn[idx])
+            l, m, n = forward_one_layer(weights, biases, idx, incopy, self.act_fn[idx])
             actvalues[idx], outvalues[idx], outderivs[idx] = l, m, n
             incopy = np.copy(m)
         
         # final layer - get act values and compute loss
-        actvalues[self.hlayercount + 1], _, _ = forward_one_layer(self.weights, self.biases, self.hlayercount + 1, incopy, None)
+        actvalues[self.hlayercount + 1], _, _ = forward_one_layer(weights, biases, self.hlayercount + 1, incopy, None)
         outvalues[self.hlayercount + 1] = safe_softmax(actvalues[self.hlayercount + 1])
         loss = calculate_loss(self.loss_fn, outvalues[self.hlayercount + 1], true_label)
 
         return outvalues, outderivs, loss
 
-    def backward(self, true_label, outvalues, outderivs, weights):
+    def backward(self, weights, biases, true_label, outvalues, outderivs):
         weight_gradients, bias_gradients = dict(), dict() # to be returned
         loss_grad_act_values = dict() # temporary within this function
         loss_grad_outputs = dict()
@@ -75,24 +85,17 @@ class NeuralNetwork:
         
         return weight_gradients, bias_gradients
 
-    # need to include optimizers here onwards
-    def update_parameters(self, learning_rate, agg_weight_changes, agg_bias_changes):
-        eta = learning_rate
-        for idx in range(1, self.hlayercount + 2):
-            self.weights[idx] -= eta * agg_weight_changes[idx]
-            self.biases[idx] -= eta * agg_bias_changes[idx]
-
-    def refresh_aggregates(self):
+    def refresh_aggregates(self, weights, biases):
         agg_weight_changes = dict()
         agg_biases_changes = dict()
         agg_loss = 0.0
         agg_correct = 0
-        for idx in self.weights:
-            agg_weight_changes[idx] = np.zeros(self.weights[idx].shape)
-            agg_biases_changes[idx] = np.zeros(self.biases[idx].shape)
+        for idx in range(1, self.hlayercount + 2):
+            agg_weight_changes[idx] = np.zeros(weights[idx].shape)
+            agg_biases_changes[idx] = np.zeros(biases[idx].shape)
         return agg_weight_changes, agg_biases_changes, agg_loss, agg_correct
 
-    def test(self, val_data):
+    def test(self, weights, biases, val_data):
         val_X, val_y = zip(*val_data)
         val_X = list(val_X); val_y = list(val_y)
         total_count = 0
@@ -100,7 +103,7 @@ class NeuralNetwork:
         total_loss = 0.0
 
         for X, y in zip(val_X, val_y):
-            outvalues, outderivs, loss = self.forward(X, y)
+            outvalues, outderivs, loss = self.forward(weights, biases, X, y)
             total_loss += loss
             y_pred = np.argmax(outvalues[self.hlayercount + 1])
             total_count += 1
@@ -116,30 +119,28 @@ class NeuralNetwork:
         train_X, train_y = zip(*train_data)
         train_X = list(train_X); train_y = list(train_y)
 
-        for i in range(epochs):
-            print(f'EPOCH - {i}')
+        weights, biases = self.init_parameters()
+        for e in range(epochs):
+            print(f'EPOCH - {e}')
             batch_count = 0
-            num_samples = 0
-            agg_weight_changes, agg_biases_changes, agg_loss, agg_crct = self.refresh_aggregates()
-            for X, y in zip(train_X, train_y):
-                outvalues, outderivs, loss = self.forward(X, y)
-                y_pred = np.amax(outvalues[self.hlayercount + 1])
-                weight_gradients, bias_gradients = self.backward(y, outvalues, outderivs, self.weights)
-                num_samples += 1
-                agg_loss += loss
+            for idx in range(0, len(train_y), batchsize):
+                # 1 batch
+                agg_weight_changes, agg_biases_changes, agg_loss, agg_crct = self.refresh_aggregates(weights, biases)
+                for X, y in zip(train_X[idx : (idx + batchsize)], train_y[idx : (idx + batchsize)]):
+                    outvalues, outderivs, loss = self.optimizer.forward(weights, biases, X, y)
+                    y_pred = np.amax(outvalues[self.hlayercount + 1])
+                    weight_gradients, bias_gradients = self.optimizer.backward(weights, biases, y, outvalues, outderivs)
+                    agg_loss += loss
 
-                if (y_pred == y):
-                    agg_crct += 1
+                    if (y_pred == y):
+                        agg_crct += 1
 
-                for idx in range(1, self.hlayercount + 2):
-                    agg_weight_changes[idx] += weight_gradients[idx]
-                    agg_biases_changes[idx] += bias_gradients[idx]
+                    for idx in range(1, self.hlayercount + 2):
+                        agg_weight_changes[idx] += weight_gradients[idx]
+                        agg_biases_changes[idx] += bias_gradients[idx]
 
-                if (num_samples % batchsize == 0):
-                    # make log
-                    self.update_parameters(learning_rate, agg_weight_changes, agg_biases_changes)
-                    num_samples = 0
-                    agg_weight_changes, agg_biases_changes, agg_loss, agg_crct = self.refresh_aggregates()
-                    batch_count += 1
-                    if (batch_count % 1000 == 0):
-                        _, _ = self.test(val_data)
+                # make log and test after every batch / epoch - doubt
+                self.optimizer.update_parameters(weights, biases, learning_rate, agg_weight_changes, agg_biases_changes)
+                batch_count += 1
+                if (batch_count % 500 == 0):
+                    _, _ = self.test(weights, biases, val_data)
