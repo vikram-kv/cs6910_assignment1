@@ -11,6 +11,7 @@ class NeuralNetwork:
         # number 0 is not used
         self.hidden_actfn = [get_act_func_and_deriv(args.activation) for _ in range(self.hlayercount + 1)]
         self.hidden_sizes = [args.hidden_size for _ in range(self.hlayercount + 1)]
+        self.hidden_sizes[0] = in_dim # for ease of initialization
         self.init_method = args.weight_init
         self.weight_decay = args.weight_decay
         self.loss_fn = args.loss
@@ -39,23 +40,32 @@ class NeuralNetwork:
     # implement Xavier initialization
     def init_parameters(self):
         weights, biases = [None for i in range(self.hlayercount+2)], [None for i in range(self.hlayercount+2)]
+        np.random.seed(2)
         if self.init_method == 'Xavier':
-            pass
-        else:
-            np.random.seed(2)
-
+            # normal dist Xavier init done
             # for hidden layer 1
-            weights[1] = np.random.randn(self.hidden_sizes[1], self.in_layer_size)
-            biases[1] = np.random.randn(self.hidden_sizes[1])
-
-            for idx in range(2, self.hlayercount+1):
-                weights[idx] = np.random.randn(self.hidden_sizes[idx], self.hidden_sizes[idx - 1])
-                biases[idx] = np.random.randn(self.hidden_sizes[idx])
+            for idx in range(1, self.hlayercount+1):
+                scaler = np.sqrt(2/(self.hidden_sizes[idx] + self.hidden_sizes[idx-1]))
+                weights[idx] = np.random.randn(self.hidden_sizes[idx], self.hidden_sizes[idx - 1]) * scaler
+                biases[idx] = np.random.randn(self.hidden_sizes[idx]) * scaler
             
             # for output layer
             outidx = self.hlayercount + 1
-            weights[outidx] = np.random.randn(self.out_layer_size, self.hidden_sizes[outidx - 1])
-            biases[outidx] = np.random.randn(self.out_layer_size)
+            scaler = np.sqrt(2/(self.out_layer_size + self.hidden_sizes[outidx-1]))
+            weights[outidx] = np.random.randn(self.out_layer_size, self.hidden_sizes[outidx - 1]) * scaler
+            biases[outidx] = np.random.randn(self.out_layer_size) * scaler
+        else:
+            # random init done
+            # for hidden layer 1
+            scaler = 0.1
+            for idx in range(1, self.hlayercount+1):
+                weights[idx] = np.random.randn(self.hidden_sizes[idx], self.hidden_sizes[idx - 1]) * scaler
+                biases[idx] = np.random.randn(self.hidden_sizes[idx]) * scaler
+            
+            # for output layer
+            outidx = self.hlayercount + 1
+            weights[outidx] = np.random.randn(self.out_layer_size, self.hidden_sizes[outidx - 1]) * scaler
+            biases[outidx] = np.random.randn(self.out_layer_size) * scaler
 
         return weights, biases
 
