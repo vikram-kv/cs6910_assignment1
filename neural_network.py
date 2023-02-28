@@ -42,22 +42,22 @@ class NeuralNetwork:
         weights, biases = [None for i in range(self.hlayercount+2)], [None for i in range(self.hlayercount+2)]
         np.random.seed(2)
         if self.init_method == 'Xavier':
-            # normal dist Xavier init done
+            # uniform dist Xavier init done
             # for hidden layer 1
             for idx in range(1, self.hlayercount+1):
-                scaler = np.sqrt(2/(self.hidden_sizes[idx] + self.hidden_sizes[idx-1]))
-                weights[idx] = np.random.randn(self.hidden_sizes[idx], self.hidden_sizes[idx - 1]) * scaler
-                biases[idx] = np.random.randn(self.hidden_sizes[idx]) * scaler
+                ran = np.sqrt(6/(self.hidden_sizes[idx] + self.hidden_sizes[idx-1]))
+                weights[idx] = np.random.uniform(low=-ran,high=ran,size=(self.hidden_sizes[idx], self.hidden_sizes[idx - 1]))
+                biases[idx] = np.random.uniform(low=-ran,high=ran,size=(self.hidden_sizes[idx]))
             
             # for output layer
             outidx = self.hlayercount + 1
-            scaler = np.sqrt(2/(self.out_layer_size + self.hidden_sizes[outidx-1]))
-            weights[outidx] = np.random.randn(self.out_layer_size, self.hidden_sizes[outidx - 1]) * scaler
-            biases[outidx] = np.random.randn(self.out_layer_size) * scaler
+            ran = np.sqrt(6/(self.out_layer_size + self.hidden_sizes[outidx-1]))
+            weights[outidx] = np.random.uniform(low=-ran,high=ran,size=(self.out_layer_size, self.hidden_sizes[outidx - 1]))
+            biases[outidx] = np.random.uniform(low=-ran,high=ran,size=(self.out_layer_size))
         else:
             # random init done
             # for hidden layer 1
-            scaler = 0.1
+            scaler = 0.5
             for idx in range(1, self.hlayercount+1):
                 weights[idx] = np.random.randn(self.hidden_sizes[idx], self.hidden_sizes[idx - 1]) * scaler
                 biases[idx] = np.random.randn(self.hidden_sizes[idx]) * scaler
@@ -164,5 +164,5 @@ class NeuralNetwork:
                 # make log and test after every batch / epoch - doubt
                 self.optimizer.update_parameters(weights, biases, learning_rate, agg_weight_gradients, agg_bias_gradients)
                 batch_count += 1
-                if (batch_count % 500 == 0):
+                if (batch_count % 50 == 0):
                     _, _ = self.test(weights, biases, val_batches)

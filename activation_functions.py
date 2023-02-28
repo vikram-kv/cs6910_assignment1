@@ -9,10 +9,10 @@ def sigmoid_deriv(fx):
 
 # relu activation function and derivative
 def relu_value(x):
-    return (0.0 if x < 0 else x)
-
+    return np.where(x>0, 1.0, 0.0) * x
+    
 def relu_deriv(fx):
-    return (0.0 if fx < 0 else 1.0)
+    return np.where(fx>0,1.0,0.0)
 
 # tanh activation function and derivative
 def tanh_value(x):
@@ -27,7 +27,7 @@ def linear_value(x):
     return x
 
 def linear_deriv(fx):
-    return 1.0
+    return np.ones_like(fx)
 
 # function to return the function operator and derivative operator for a activation function by name
 def get_act_func_and_deriv(name : str):

@@ -6,7 +6,7 @@ def gen_parser():
     parser.add_argument('-we', '--wandb_entity',dest='wde', default='vikram-kv', help='Wandb Entity used to track experiments in the Weights & Biases dashboard')
     parser.add_argument('-d', '--dataset', dest='dataset', default='fashion_mnist', choices=['fashion_mnist', 'mnist'], help='Dataset to be used')
     parser.add_argument('-e', '--epochs', dest='epochs', default=10, type=int, help='Number of epochs to train neural network')
-    parser.add_argument('-b', '--batch_size', dest='batch_size', default=8, type=int, help='Batch size used to train neural network')
+    parser.add_argument('-b', '--batch_size', dest='batch_size', default=16, type=int, help='Batch size used to train neural network')
     parser.add_argument('-l', '--loss', dest='loss', default='cross_entropy', choices=['mean_squared_error', 'cross_entropy'], help='Loss function to be used for training')
     parser.add_argument('-o', '--optimizer', dest='optimizer', default='sgd', choices=['sgd', 'momentum', 'nag', 'rmsprop', 'adam', 'nadam'], help='Optimization method to use for training')
     parser.add_argument('-lr','--learning_rate', dest='learning_rate', default=1e-3, type=float, help='Learning rate used to optimize model parameters')
