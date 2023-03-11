@@ -31,8 +31,8 @@ class CrossEntropyLoss:
         loss = -np.mean(np.log2(np.sum(np.multiply(y_pred, y_true), axis=0)))
         if not needgradients:
             return y_pred, loss
-        gradient_pre_activation = y_pred - y_true
-        return y_pred, loss, gradient_pre_activation
+        gradients_fin_act_values = y_pred - y_true
+        return y_pred, loss, gradients_fin_act_values
     
 class MeanSquareErrorLoss:
     # applies the softmax function to input after shifting it first to avoid numerical errors
@@ -67,9 +67,8 @@ class MeanSquareErrorLoss:
         # taking one example (1 column) to see this helps
         add_term = np.multiply(y_pred, y_pred - y_true)
         sub_term = np.multiply(y_pred, np.sum(add_term, axis=0))
-        gradient_pre_activation = add_term - sub_term
-
-        return y_pred, loss, gradient_pre_activation
+        gradients_fin_act_values = add_term - sub_term
+        return y_pred, loss, gradients_fin_act_values
 
 # add custom loss function's entry here
 def get_loss_by_name(name):

@@ -1,7 +1,7 @@
 import numpy as np
 from activation_functions import *
 from loss_functions import *
-from optimization_functions import *
+from optimizers import *
 
 class NeuralNetwork:
 
