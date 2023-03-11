@@ -1,0 +1,259 @@
+2023-03-11 09:07:18,798 INFO    StreamThr :11958 [internal.py:wandb_internal():87] W&B internal server running at pid: 11958, started at: 2023-03-11 09:07:18.797669
+2023-03-11 09:07:18,802 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: status
+2023-03-11 09:07:18,813 INFO    WriterThread:11958 [datastore.py:open_for_write():85] open: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/run-53r1pnmj.wandb
+2023-03-11 09:07:18,814 DEBUG   SenderThread:11958 [sender.py:send():336] send: header
+2023-03-11 09:07:18,834 DEBUG   SenderThread:11958 [sender.py:send():336] send: run
+2023-03-11 09:07:19,483 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: check_version
+2023-03-11 09:07:19,483 INFO    SenderThread:11958 [dir_watcher.py:__init__():216] watching files in: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files
+2023-03-11 09:07:19,483 INFO    SenderThread:11958 [sender.py:_start_run_threads():1067] run started: 53r1pnmj with start time 1678505838.804586
+2023-03-11 09:07:19,483 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: summary_record
+2023-03-11 09:07:19,483 INFO    SenderThread:11958 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2023-03-11 09:07:19,484 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: check_version
+2023-03-11 09:07:19,532 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: run_start
+2023-03-11 09:07:20,485 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/wandb-summary.json
+2023-03-11 09:07:20,761 ERROR   HandlerThread:11958 [gpu.py:is_available():351] Error initializing NVML: Driver Not Loaded
+2023-03-11 09:07:20,762 DEBUG   HandlerThread:11958 [system_info.py:__init__():31] System info init
+2023-03-11 09:07:20,762 DEBUG   HandlerThread:11958 [system_info.py:__init__():46] System info init done
+2023-03-11 09:07:20,762 INFO    HandlerThread:11958 [system_monitor.py:start():151] Starting system monitor
+2023-03-11 09:07:20,763 INFO    SystemMonitor:11958 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2023-03-11 09:07:20,763 INFO    HandlerThread:11958 [system_monitor.py:probe():172] Collecting system info
+2023-03-11 09:07:20,764 INFO    SystemMonitor:11958 [interfaces.py:start():168] Started cpu
+2023-03-11 09:07:20,765 INFO    SystemMonitor:11958 [interfaces.py:start():168] Started disk
+2023-03-11 09:07:20,765 INFO    SystemMonitor:11958 [interfaces.py:start():168] Started memory
+2023-03-11 09:07:20,766 INFO    SystemMonitor:11958 [interfaces.py:start():168] Started network
+2023-03-11 09:07:20,812 DEBUG   HandlerThread:11958 [system_info.py:probe():195] Probing system
+2023-03-11 09:07:20,833 DEBUG   HandlerThread:11958 [system_info.py:_probe_git():180] Probing git
+2023-03-11 09:07:20,862 DEBUG   HandlerThread:11958 [system_info.py:_probe_git():188] Probing git done
+2023-03-11 09:07:20,862 DEBUG   HandlerThread:11958 [system_info.py:probe():241] Probing system done
+2023-03-11 09:07:20,863 DEBUG   HandlerThread:11958 [system_monitor.py:probe():181] {'os': 'Linux-5.15.0-67-generic-x86_64-with-glibc2.31', 'python': '3.9.16', 'heartbeatAt': '2023-03-11T03:37:20.812465', 'startedAt': '2023-03-11T03:37:18.772351', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/home/vikram/Desktop/Deep Learning/cs6910_assignment1/explore_dataset.py', 'codePath': 'explore_dataset.py', 'git': {'remote': 'https://github.com/vikram-kv/cs6910_assignment1', 'commit': 'f0dc31045c78521ddbb8ce9c3b496e0fe91e0045'}, 'email': 'cs19b021@smail.iitm.ac.in', 'root': '/home/vikram/Desktop/Deep Learning/cs6910_assignment1', 'host': 'VikramUbuntu', 'username': 'vikram', 'executable': '/home/vikram/miniconda3/envs/dlenv/bin/python3', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 2.43525, 'min': 800.0, 'max': 4100.0}, 'cpu_freq_per_core': [{'current': 3.277, 'min': 800.0, 'max': 4100.0}, {'current': 2.4, 'min': 800.0, 'max': 4100.0}, {'current': 3.036, 'min': 800.0, 'max': 4100.0}, {'current': 3.87, 'min': 800.0, 'max': 4100.0}, {'current': 3.834, 'min': 800.0, 'max': 4100.0}, {'current': 2.4, 'min': 800.0, 'max': 4100.0}, {'current': 2.4, 'min': 800.0, 'max': 4100.0}, {'current': 2.532, 'min': 800.0, 'max': 4100.0}], 'disk': {'total': 88.6217041015625, 'used': 31.074031829833984}, 'memory': {'total': 7.607265472412109}}
+2023-03-11 09:07:20,863 INFO    HandlerThread:11958 [system_monitor.py:probe():182] Finished collecting system info
+2023-03-11 09:07:20,863 INFO    HandlerThread:11958 [system_monitor.py:probe():185] Publishing system info
+2023-03-11 09:07:20,863 DEBUG   HandlerThread:11958 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-03-11 09:07:20,864 DEBUG   HandlerThread:11958 [system_info.py:_save_pip():67] Saving pip packages done
+2023-03-11 09:07:20,864 DEBUG   HandlerThread:11958 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-03-11 09:07:21,486 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/conda-environment.yaml
+2023-03-11 09:07:21,486 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/requirements.txt
+2023-03-11 09:07:24,486 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/conda-environment.yaml
+2023-03-11 09:07:24,703 DEBUG   HandlerThread:11958 [system_info.py:_save_conda():86] Saving conda packages done
+2023-03-11 09:07:24,704 INFO    HandlerThread:11958 [system_monitor.py:probe():187] Finished publishing system info
+2023-03-11 09:07:24,711 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: status_report
+2023-03-11 09:07:24,712 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-11 09:07:24,712 DEBUG   SenderThread:11958 [sender.py:send():336] send: files
+2023-03-11 09:07:24,712 INFO    SenderThread:11958 [sender.py:_save_file():1321] saving file wandb-metadata.json with policy now
+2023-03-11 09:07:24,728 DEBUG   SenderThread:11958 [sender.py:send():336] send: telemetry
+2023-03-11 09:07:24,766 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: stop_status
+2023-03-11 09:07:24,767 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: stop_status
+2023-03-11 09:07:25,116 DEBUG   SenderThread:11958 [sender.py:send():336] send: telemetry
+2023-03-11 09:07:25,116 DEBUG   SenderThread:11958 [sender.py:send():336] send: telemetry
+2023-03-11 09:07:25,116 DEBUG   SenderThread:11958 [sender.py:send():336] send: run
+2023-03-11 09:07:25,434 INFO    SenderThread:11958 [sender.py:send_run():944] updated run: 53r1pnmj
+2023-03-11 09:07:25,487 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/config.yaml
+2023-03-11 09:07:25,487 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/wandb-metadata.json
+2023-03-11 09:07:25,544 INFO    wandb-upload_0:11958 [upload_job.py:push():138] Uploaded file /tmp/tmpbb7el0lxwandb/yy2evpi5-wandb-metadata.json
+2023-03-11 09:07:25,868 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: log_artifact
+2023-03-11 09:07:25,869 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: log_artifact
+2023-03-11 09:07:26,488 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/media/table/table_0_f0834af5f4d383184387.table.json
+2023-03-11 09:07:26,489 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/media/table
+2023-03-11 09:07:26,489 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/media
+2023-03-11 09:07:26,522 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-11 09:07:27,071 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: log_artifact
+2023-03-11 09:07:27,095 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-11 09:07:27,369 INFO    wandb-upload_0:11958 [upload_job.py:push():138] Uploaded file /tmp/tmpbb7el0lxwandb/xf13cd5o-media/table/table_0_f0834af5f4d383184387.table.json
+2023-03-11 09:07:27,489 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/media/table/table_1_f0834af5f4d383184387.table.json
+2023-03-11 09:07:27,490 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/media/table
+2023-03-11 09:07:27,698 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: log_artifact
+2023-03-11 09:07:27,713 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-11 09:07:28,221 INFO    wandb-upload_2:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmp269mkkar
+2023-03-11 09:07:28,232 INFO    wandb-upload_3:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmp8gn9321r
+2023-03-11 09:07:28,236 INFO    wandb-upload_11:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpuhtexpvj
+2023-03-11 09:07:28,236 INFO    wandb-upload_5:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmprycaasqt
+2023-03-11 09:07:28,237 INFO    wandb-upload_4:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpg6ei_vyx
+2023-03-11 09:07:28,240 INFO    wandb-upload_7:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmp86vrlkvz
+2023-03-11 09:07:28,240 INFO    wandb-upload_6:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpevhs2wq3
+2023-03-11 09:07:28,246 INFO    wandb-upload_8:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmphh7k4u38
+2023-03-11 09:07:28,258 INFO    wandb-upload_10:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmp6l2pb47r
+2023-03-11 09:07:28,276 INFO    wandb-upload_9:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpky5ync49
+2023-03-11 09:07:28,315 INFO    wandb-upload_1:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpoqye3b11
+2023-03-11 09:07:28,323 INFO    wandb-upload_0:11958 [upload_job.py:push():138] Uploaded file /tmp/tmpbb7el0lxwandb/8ah2moqp-media/table/table_1_f0834af5f4d383184387.table.json
+2023-03-11 09:07:28,490 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/media/table/table_2_f0834af5f4d383184387.table.json
+2023-03-11 09:07:28,490 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/media/table
+2023-03-11 09:07:28,716 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: poll_exit
+2023-03-11 09:07:29,567 INFO    SenderThread:11958 [sender.py:send_request_log_artifact():1381] logged artifact run-53r1pnmj-table - {'id': 'QXJ0aWZhY3Q6MzkzOTUwNjk4', 'digest': '738847090fe2bf31261d555b6f1e5928', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjU2NjY1MDI4', 'latestArtifact': None}, 'version': 'latest'}
+2023-03-11 09:07:29,568 DEBUG   SenderThread:11958 [sender.py:send():336] send: files
+2023-03-11 09:07:29,568 INFO    SenderThread:11958 [sender.py:_save_file():1321] saving file media/table/table_0_f0834af5f4d383184387.table.json with policy now
+2023-03-11 09:07:29,569 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: status_report
+2023-03-11 09:07:29,571 DEBUG   SenderThread:11958 [sender.py:send():336] send: history
+2023-03-11 09:07:29,571 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: summary_record
+2023-03-11 09:07:29,578 INFO    SenderThread:11958 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2023-03-11 09:07:29,578 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: log_artifact
+2023-03-11 09:07:30,399 INFO    wandb-upload_2:11958 [upload_job.py:push():138] Uploaded file /tmp/tmpbb7el0lxwandb/rb42r0tr-media/table/table_2_f0834af5f4d383184387.table.json
+2023-03-11 09:07:30,492 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/wandb-summary.json
+2023-03-11 09:07:30,552 INFO    wandb-upload_11:11958 [upload_job.py:push():138] Uploaded file /tmp/tmpbb7el0lxwandb/zi6y7z6r-media/table/table_0_f0834af5f4d383184387.table.json
+2023-03-11 09:07:31,578 INFO    wandb-upload_0:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmp702j_z02
+2023-03-11 09:07:31,586 INFO    wandb-upload_3:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmp7rmr0idd
+2023-03-11 09:07:31,590 INFO    wandb-upload_4:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpkwmtorrv
+2023-03-11 09:07:31,591 INFO    wandb-upload_10:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmptuqhqkw3
+2023-03-11 09:07:31,592 INFO    wandb-upload_1:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpb3slodcb
+2023-03-11 09:07:31,603 INFO    wandb-upload_5:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmp52l7sslz
+2023-03-11 09:07:31,614 INFO    wandb-upload_9:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpyhyh1cn5
+2023-03-11 09:07:31,630 INFO    wandb-upload_2:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpjkb5nj44
+2023-03-11 09:07:31,637 INFO    wandb-upload_8:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpdkqoomu7
+2023-03-11 09:07:31,638 INFO    wandb-upload_7:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmp176dll37
+2023-03-11 09:07:31,658 INFO    wandb-upload_6:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmp0g0jdrh9
+2023-03-11 09:07:32,921 INFO    SenderThread:11958 [sender.py:send_request_log_artifact():1381] logged artifact run-53r1pnmj-table - {'id': 'QXJ0aWZhY3Q6MzkzOTUwNzIw', 'digest': 'd5c28d8ed7a9b8d3cd222ea464c7840a', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjU2NjY1MDI4', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MzkzOTUwNjk4', 'versionIndex': 0}}, 'version': 'latest'}
+2023-03-11 09:07:32,921 DEBUG   SenderThread:11958 [sender.py:send():336] send: files
+2023-03-11 09:07:32,921 INFO    SenderThread:11958 [sender.py:_save_file():1321] saving file media/table/table_1_f0834af5f4d383184387.table.json with policy now
+2023-03-11 09:07:32,922 DEBUG   SenderThread:11958 [sender.py:send():336] send: history
+2023-03-11 09:07:32,922 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: summary_record
+2023-03-11 09:07:32,931 INFO    SenderThread:11958 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2023-03-11 09:07:32,932 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: log_artifact
+2023-03-11 09:07:33,495 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/wandb-summary.json
+2023-03-11 09:07:33,718 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-11 09:07:33,751 INFO    wandb-upload_11:11958 [upload_job.py:push():138] Uploaded file /tmp/tmpbb7el0lxwandb/1sj45w4p-media/table/table_1_f0834af5f4d383184387.table.json
+2023-03-11 09:07:35,187 INFO    wandb-upload_2:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpishoh5ka
+2023-03-11 09:07:35,214 INFO    wandb-upload_1:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpkpmf53en
+2023-03-11 09:07:35,229 INFO    wandb-upload_4:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpio_39dcm
+2023-03-11 09:07:35,230 INFO    wandb-upload_9:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpmv1g8_vk
+2023-03-11 09:07:35,234 INFO    wandb-upload_3:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmp8xztkvo3
+2023-03-11 09:07:35,238 INFO    wandb-upload_5:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpbeis5wrm
+2023-03-11 09:07:35,247 INFO    wandb-upload_0:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpcbk1rqfv
+2023-03-11 09:07:35,247 INFO    wandb-upload_8:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpn8vkk16f
+2023-03-11 09:07:35,248 INFO    wandb-upload_6:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpc2acqwy2
+2023-03-11 09:07:35,256 INFO    wandb-upload_10:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmp8tofw8yw
+2023-03-11 09:07:35,302 INFO    wandb-upload_7:11958 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpbob5qjh4
+2023-03-11 09:07:36,636 INFO    SenderThread:11958 [sender.py:send_request_log_artifact():1381] logged artifact run-53r1pnmj-table - {'id': 'QXJ0aWZhY3Q6MzkzOTUwNzQ4', 'digest': '3feda53c971ba455d15df1e026c55277', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjU2NjY1MDI4', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MzkzOTUwNzIw', 'versionIndex': 1}}, 'version': 'latest'}
+2023-03-11 09:07:36,636 DEBUG   SenderThread:11958 [sender.py:send():336] send: files
+2023-03-11 09:07:36,636 INFO    SenderThread:11958 [sender.py:_save_file():1321] saving file media/table/table_2_f0834af5f4d383184387.table.json with policy now
+2023-03-11 09:07:36,637 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: status_report
+2023-03-11 09:07:36,637 DEBUG   SenderThread:11958 [sender.py:send():336] send: history
+2023-03-11 09:07:36,638 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: summary_record
+2023-03-11 09:07:36,641 INFO    SenderThread:11958 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2023-03-11 09:07:36,642 DEBUG   SenderThread:11958 [sender.py:send():336] send: telemetry
+2023-03-11 09:07:36,642 DEBUG   SenderThread:11958 [sender.py:send():336] send: exit
+2023-03-11 09:07:36,642 INFO    SenderThread:11958 [sender.py:send_exit():559] handling exit code: 0
+2023-03-11 09:07:36,643 INFO    SenderThread:11958 [sender.py:send_exit():561] handling runtime: 8
+2023-03-11 09:07:36,643 INFO    SenderThread:11958 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2023-03-11 09:07:36,644 INFO    SenderThread:11958 [sender.py:send_exit():567] send defer
+2023-03-11 09:07:36,644 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: poll_exit
+2023-03-11 09:07:36,644 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: defer
+2023-03-11 09:07:36,645 INFO    HandlerThread:11958 [handler.py:handle_request_defer():170] handle defer: 0
+2023-03-11 09:07:36,646 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: defer
+2023-03-11 09:07:36,646 INFO    SenderThread:11958 [sender.py:send_request_defer():583] handle sender defer: 0
+2023-03-11 09:07:36,646 INFO    SenderThread:11958 [sender.py:transition_state():587] send defer: 1
+2023-03-11 09:07:36,646 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: defer
+2023-03-11 09:07:36,646 INFO    HandlerThread:11958 [handler.py:handle_request_defer():170] handle defer: 1
+2023-03-11 09:07:36,652 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: defer
+2023-03-11 09:07:36,652 INFO    SenderThread:11958 [sender.py:send_request_defer():583] handle sender defer: 1
+2023-03-11 09:07:36,652 INFO    SenderThread:11958 [sender.py:transition_state():587] send defer: 2
+2023-03-11 09:07:36,652 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: defer
+2023-03-11 09:07:36,653 INFO    HandlerThread:11958 [handler.py:handle_request_defer():170] handle defer: 2
+2023-03-11 09:07:36,653 INFO    HandlerThread:11958 [system_monitor.py:finish():161] Stopping system monitor
+2023-03-11 09:07:36,653 DEBUG   SystemMonitor:11958 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2023-03-11 09:07:36,654 DEBUG   SystemMonitor:11958 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2023-03-11 09:07:36,654 DEBUG   SystemMonitor:11958 [system_monitor.py:_start():141] Publishing last batch of metrics
+2023-03-11 09:07:36,655 INFO    HandlerThread:11958 [interfaces.py:finish():175] Joined cpu
+2023-03-11 09:07:36,655 INFO    HandlerThread:11958 [interfaces.py:finish():175] Joined disk
+2023-03-11 09:07:36,655 INFO    HandlerThread:11958 [interfaces.py:finish():175] Joined memory
+2023-03-11 09:07:36,656 INFO    HandlerThread:11958 [interfaces.py:finish():175] Joined network
+2023-03-11 09:07:36,656 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: defer
+2023-03-11 09:07:36,657 INFO    SenderThread:11958 [sender.py:send_request_defer():583] handle sender defer: 2
+2023-03-11 09:07:36,657 INFO    SenderThread:11958 [sender.py:transition_state():587] send defer: 3
+2023-03-11 09:07:36,657 DEBUG   SenderThread:11958 [sender.py:send():336] send: stats
+2023-03-11 09:07:36,658 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: defer
+2023-03-11 09:07:36,658 INFO    HandlerThread:11958 [handler.py:handle_request_defer():170] handle defer: 3
+2023-03-11 09:07:36,658 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: defer
+2023-03-11 09:07:36,658 INFO    SenderThread:11958 [sender.py:send_request_defer():583] handle sender defer: 3
+2023-03-11 09:07:36,658 INFO    SenderThread:11958 [sender.py:transition_state():587] send defer: 4
+2023-03-11 09:07:36,659 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: defer
+2023-03-11 09:07:36,659 INFO    HandlerThread:11958 [handler.py:handle_request_defer():170] handle defer: 4
+2023-03-11 09:07:36,659 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: defer
+2023-03-11 09:07:36,659 INFO    SenderThread:11958 [sender.py:send_request_defer():583] handle sender defer: 4
+2023-03-11 09:07:36,659 INFO    SenderThread:11958 [sender.py:transition_state():587] send defer: 5
+2023-03-11 09:07:36,660 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: defer
+2023-03-11 09:07:36,660 INFO    HandlerThread:11958 [handler.py:handle_request_defer():170] handle defer: 5
+2023-03-11 09:07:36,661 DEBUG   SenderThread:11958 [sender.py:send():336] send: summary
+2023-03-11 09:07:36,661 INFO    SenderThread:11958 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2023-03-11 09:07:36,662 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: defer
+2023-03-11 09:07:36,662 INFO    SenderThread:11958 [sender.py:send_request_defer():583] handle sender defer: 5
+2023-03-11 09:07:36,662 INFO    SenderThread:11958 [sender.py:transition_state():587] send defer: 6
+2023-03-11 09:07:36,662 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: defer
+2023-03-11 09:07:36,662 INFO    HandlerThread:11958 [handler.py:handle_request_defer():170] handle defer: 6
+2023-03-11 09:07:36,663 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: defer
+2023-03-11 09:07:36,663 INFO    SenderThread:11958 [sender.py:send_request_defer():583] handle sender defer: 6
+2023-03-11 09:07:36,669 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: status_report
+2023-03-11 09:07:36,994 INFO    SenderThread:11958 [sender.py:transition_state():587] send defer: 7
+2023-03-11 09:07:36,995 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: defer
+2023-03-11 09:07:36,995 INFO    HandlerThread:11958 [handler.py:handle_request_defer():170] handle defer: 7
+2023-03-11 09:07:36,995 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: defer
+2023-03-11 09:07:36,996 INFO    SenderThread:11958 [sender.py:send_request_defer():583] handle sender defer: 7
+2023-03-11 09:07:36,996 INFO    SenderThread:11958 [sender.py:transition_state():587] send defer: 8
+2023-03-11 09:07:36,996 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: defer
+2023-03-11 09:07:36,996 INFO    HandlerThread:11958 [handler.py:handle_request_defer():170] handle defer: 8
+2023-03-11 09:07:36,997 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: defer
+2023-03-11 09:07:36,997 INFO    SenderThread:11958 [sender.py:send_request_defer():583] handle sender defer: 8
+2023-03-11 09:07:37,015 INFO    SenderThread:11958 [sender.py:transition_state():587] send defer: 9
+2023-03-11 09:07:37,016 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: defer
+2023-03-11 09:07:37,016 INFO    HandlerThread:11958 [handler.py:handle_request_defer():170] handle defer: 9
+2023-03-11 09:07:37,017 DEBUG   SenderThread:11958 [sender.py:send():336] send: artifact
+2023-03-11 09:07:37,499 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/config.yaml
+2023-03-11 09:07:37,500 INFO    Thread-13 :11958 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/wandb-summary.json
+2023-03-11 09:07:37,659 INFO    wandb-upload_11:11958 [upload_job.py:push():138] Uploaded file /tmp/tmpbb7el0lxwandb/dmuoxtg3-media/table/table_2_f0834af5f4d383184387.table.json
+2023-03-11 09:07:38,638 INFO    SenderThread:11958 [sender.py:send_artifact():1417] sent artifact job-https___github.com_vikram-kv_cs6910_assignment1_explore_dataset.py - {'id': 'QXJ0aWZhY3Q6MzkzOTUwMDgw', 'digest': 'f4f4e9d8c4df4c42a05c5a55daef42b8', 'state': 'COMMITTED', 'aliases': [{'artifactCollectionName': 'job-https___github.com_vikram-kv_cs6910_assignment1_explore_dataset.py', 'alias': 'latest'}, {'artifactCollectionName': 'job-https___github.com_vikram-kv_cs6910_assignment1_explore_dataset.py', 'alias': 'v3'}], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjU2NjYzMzgz', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MzkzOTUwMDgw', 'versionIndex': 3}}, 'version': 'v3'}
+2023-03-11 09:07:38,638 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: defer
+2023-03-11 09:07:38,638 INFO    SenderThread:11958 [sender.py:send_request_defer():583] handle sender defer: 9
+2023-03-11 09:07:38,639 INFO    SenderThread:11958 [dir_watcher.py:finish():362] shutting down directory watcher
+2023-03-11 09:07:38,720 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-11 09:07:39,502 INFO    SenderThread:11958 [dir_watcher.py:finish():392] scan: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files
+2023-03-11 09:07:39,502 INFO    SenderThread:11958 [dir_watcher.py:finish():406] scan save: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/config.yaml config.yaml
+2023-03-11 09:07:39,502 INFO    SenderThread:11958 [dir_watcher.py:finish():406] scan save: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/wandb-summary.json wandb-summary.json
+2023-03-11 09:07:39,508 INFO    SenderThread:11958 [dir_watcher.py:finish():406] scan save: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/requirements.txt requirements.txt
+2023-03-11 09:07:39,509 INFO    SenderThread:11958 [dir_watcher.py:finish():406] scan save: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/conda-environment.yaml conda-environment.yaml
+2023-03-11 09:07:39,510 INFO    SenderThread:11958 [dir_watcher.py:finish():406] scan save: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/wandb-metadata.json wandb-metadata.json
+2023-03-11 09:07:39,521 INFO    SenderThread:11958 [dir_watcher.py:finish():406] scan save: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/media/table/table_2_f0834af5f4d383184387.table.json media/table/table_2_f0834af5f4d383184387.table.json
+2023-03-11 09:07:39,522 INFO    SenderThread:11958 [dir_watcher.py:finish():406] scan save: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/media/table/table_1_f0834af5f4d383184387.table.json media/table/table_1_f0834af5f4d383184387.table.json
+2023-03-11 09:07:39,522 INFO    SenderThread:11958 [dir_watcher.py:finish():406] scan save: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/media/table/table_0_f0834af5f4d383184387.table.json media/table/table_0_f0834af5f4d383184387.table.json
+2023-03-11 09:07:39,522 INFO    SenderThread:11958 [sender.py:transition_state():587] send defer: 10
+2023-03-11 09:07:39,522 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: defer
+2023-03-11 09:07:39,523 INFO    HandlerThread:11958 [handler.py:handle_request_defer():170] handle defer: 10
+2023-03-11 09:07:39,531 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: defer
+2023-03-11 09:07:39,531 INFO    SenderThread:11958 [sender.py:send_request_defer():583] handle sender defer: 10
+2023-03-11 09:07:39,531 INFO    SenderThread:11958 [file_pusher.py:finish():162] shutting down file pusher
+2023-03-11 09:07:40,351 INFO    wandb-upload_5:11958 [upload_job.py:push():138] Uploaded file /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/conda-environment.yaml
+2023-03-11 09:07:40,449 INFO    wandb-upload_1:11958 [upload_job.py:push():138] Uploaded file /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/config.yaml
+2023-03-11 09:07:40,453 INFO    wandb-upload_9:11958 [upload_job.py:push():138] Uploaded file /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/wandb-summary.json
+2023-03-11 09:07:40,460 INFO    wandb-upload_3:11958 [upload_job.py:push():138] Uploaded file /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/files/requirements.txt
+2023-03-11 09:07:40,661 INFO    Thread-12 :11958 [sender.py:transition_state():587] send defer: 11
+2023-03-11 09:07:40,662 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: defer
+2023-03-11 09:07:40,662 INFO    HandlerThread:11958 [handler.py:handle_request_defer():170] handle defer: 11
+2023-03-11 09:07:40,663 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: defer
+2023-03-11 09:07:40,663 INFO    SenderThread:11958 [sender.py:send_request_defer():583] handle sender defer: 11
+2023-03-11 09:07:40,663 INFO    SenderThread:11958 [file_pusher.py:join():167] waiting for file pusher
+2023-03-11 09:07:40,664 INFO    SenderThread:11958 [sender.py:transition_state():587] send defer: 12
+2023-03-11 09:07:40,664 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: defer
+2023-03-11 09:07:40,664 INFO    HandlerThread:11958 [handler.py:handle_request_defer():170] handle defer: 12
+2023-03-11 09:07:40,665 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: defer
+2023-03-11 09:07:40,665 INFO    SenderThread:11958 [sender.py:send_request_defer():583] handle sender defer: 12
+2023-03-11 09:07:40,989 INFO    SenderThread:11958 [sender.py:transition_state():587] send defer: 13
+2023-03-11 09:07:40,990 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: defer
+2023-03-11 09:07:40,990 INFO    HandlerThread:11958 [handler.py:handle_request_defer():170] handle defer: 13
+2023-03-11 09:07:40,991 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: defer
+2023-03-11 09:07:40,991 INFO    SenderThread:11958 [sender.py:send_request_defer():583] handle sender defer: 13
+2023-03-11 09:07:40,991 INFO    SenderThread:11958 [sender.py:transition_state():587] send defer: 14
+2023-03-11 09:07:40,992 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: defer
+2023-03-11 09:07:40,992 INFO    HandlerThread:11958 [handler.py:handle_request_defer():170] handle defer: 14
+2023-03-11 09:07:40,993 DEBUG   SenderThread:11958 [sender.py:send():336] send: final
+2023-03-11 09:07:40,994 DEBUG   SenderThread:11958 [sender.py:send():336] send: footer
+2023-03-11 09:07:40,994 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: defer
+2023-03-11 09:07:40,994 INFO    SenderThread:11958 [sender.py:send_request_defer():583] handle sender defer: 14
+2023-03-11 09:07:40,996 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: poll_exit
+2023-03-11 09:07:40,997 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: server_info
+2023-03-11 09:07:40,998 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: get_summary
+2023-03-11 09:07:40,999 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: sampled_history
+2023-03-11 09:07:40,999 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: poll_exit
+2023-03-11 09:07:41,002 DEBUG   SenderThread:11958 [sender.py:send_request():363] send_request: server_info
+2023-03-11 09:07:41,404 DEBUG   HandlerThread:11958 [handler.py:handle_request():144] handle_request: shutdown
+2023-03-11 09:07:41,404 INFO    HandlerThread:11958 [handler.py:finish():841] shutting down handler
+2023-03-11 09:07:42,002 INFO    WriterThread:11958 [datastore.py:close():299] close: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/run-53r1pnmj.wandb
+2023-03-11 09:07:42,402 INFO    SenderThread:11958 [sender.py:finish():1493] shutting down sender
+2023-03-11 09:07:42,402 INFO    SenderThread:11958 [file_pusher.py:finish():162] shutting down file pusher
+2023-03-11 09:07:42,402 INFO    SenderThread:11958 [file_pusher.py:join():167] waiting for file pusher

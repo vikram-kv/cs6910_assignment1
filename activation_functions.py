@@ -1,5 +1,7 @@
 import numpy as np
 
+# new activation functions to be added following the template seen here.
+
 # sigmoid activation function and derivative
 def sigmoid_value(x):
     return 1.0/(1.0 + np.exp(-x))

@@ -1,0 +1,43 @@
+2023-03-11 09:07:18,779 INFO    MainThread:11923 [wandb_setup.py:_flush():68] Configure stats pid to 11923
+2023-03-11 09:07:18,779 INFO    MainThread:11923 [wandb_setup.py:_flush():68] Loading settings from /home/vikram/.config/wandb/settings
+2023-03-11 09:07:18,779 INFO    MainThread:11923 [wandb_setup.py:_flush():68] Loading settings from /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/settings
+2023-03-11 09:07:18,780 INFO    MainThread:11923 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2023-03-11 09:07:18,780 INFO    MainThread:11923 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'explore_dataset.py', 'program': '/home/vikram/Desktop/Deep Learning/cs6910_assignment1/explore_dataset.py'}
+2023-03-11 09:07:18,780 INFO    MainThread:11923 [wandb_init.py:_log_setup():492] Logging user logs to /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/logs/debug.log
+2023-03-11 09:07:18,780 INFO    MainThread:11923 [wandb_init.py:_log_setup():493] Logging internal logs to /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090718-53r1pnmj/logs/debug-internal.log
+2023-03-11 09:07:18,781 INFO    MainThread:11923 [wandb_init.py:init():532] calling init triggers
+2023-03-11 09:07:18,781 INFO    MainThread:11923 [wandb_init.py:init():538] wandb.init called with sweep_config: {}
+config: {}
+2023-03-11 09:07:18,781 INFO    MainThread:11923 [wandb_init.py:init():588] starting backend
+2023-03-11 09:07:18,781 INFO    MainThread:11923 [wandb_init.py:init():592] setting up manager
+2023-03-11 09:07:18,797 INFO    MainThread:11923 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-03-11 09:07:18,804 INFO    MainThread:11923 [wandb_init.py:init():599] backend started and connected
+2023-03-11 09:07:18,813 INFO    MainThread:11923 [wandb_init.py:init():687] updated telemetry
+2023-03-11 09:07:18,833 INFO    MainThread:11923 [wandb_init.py:init():727] communicating run to backend with 60.0 second timeout
+2023-03-11 09:07:19,482 INFO    MainThread:11923 [wandb_run.py:_on_init():2134] communicating current version
+2023-03-11 09:07:19,524 INFO    MainThread:11923 [wandb_run.py:_on_init():2143] got version response upgrade_message: "wandb version 0.13.11 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-03-11 09:07:19,524 INFO    MainThread:11923 [wandb_init.py:init():775] starting run threads in backend
+2023-03-11 09:07:24,720 INFO    MainThread:11923 [wandb_run.py:_console_start():2114] atexit reg
+2023-03-11 09:07:24,721 INFO    MainThread:11923 [wandb_run.py:_redirect():1969] redirect: SettingsConsole.WRAP_RAW
+2023-03-11 09:07:24,722 INFO    MainThread:11923 [wandb_run.py:_redirect():2034] Wrapping output streams.
+2023-03-11 09:07:24,722 INFO    MainThread:11923 [wandb_run.py:_redirect():2059] Redirects installed.
+2023-03-11 09:07:24,724 INFO    MainThread:11923 [wandb_init.py:init():817] run started, returning control to user process
+2023-03-11 09:07:25,104 INFO    MainThread:11923 [wandb_setup.py:_flush():68] Configure stats pid to 11923
+2023-03-11 09:07:25,104 INFO    MainThread:11923 [wandb_setup.py:_flush():68] Loading settings from /home/vikram/.config/wandb/settings
+2023-03-11 09:07:25,104 INFO    MainThread:11923 [wandb_setup.py:_flush():68] Loading settings from /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/settings
+2023-03-11 09:07:25,104 INFO    MainThread:11923 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2023-03-11 09:07:25,104 INFO    MainThread:11923 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'explore_dataset.py', 'program': '/home/vikram/Desktop/Deep Learning/cs6910_assignment1/explore_dataset.py'}
+2023-03-11 09:07:25,104 INFO    MainThread:11923 [wandb_init.py:_log_setup():492] Logging user logs to /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090725-wdeozp38/logs/debug.log
+2023-03-11 09:07:25,104 INFO    MainThread:11923 [wandb_init.py:_log_setup():493] Logging internal logs to /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230311_090725-wdeozp38/logs/debug-internal.log
+2023-03-11 09:07:25,104 INFO    MainThread:11923 [wandb_init.py:init():532] calling init triggers
+2023-03-11 09:07:25,104 INFO    MainThread:11923 [wandb_init.py:init():538] wandb.init called with sweep_config: {}
+config: {}
+2023-03-11 09:07:25,104 INFO    MainThread:11923 [wandb_init.py:init():583] wandb.init() called when a run is still active
+2023-03-11 09:07:27,713 INFO    MainThread:11923 [wandb_run.py:_finish():1854] finishing run cs19b021/cs6910-assignment1/53r1pnmj
+2023-03-11 09:07:27,714 INFO    MainThread:11923 [wandb_run.py:_atexit_cleanup():2083] got exitcode: 0
+2023-03-11 09:07:27,714 INFO    MainThread:11923 [wandb_run.py:_restore():2066] restore
+2023-03-11 09:07:27,714 INFO    MainThread:11923 [wandb_run.py:_restore():2072] restore done
+2023-03-11 09:07:42,407 INFO    MainThread:11923 [wandb_run.py:_footer_history_summary_info():3442] rendering history
+2023-03-11 09:07:42,408 INFO    MainThread:11923 [wandb_run.py:_footer_history_summary_info():3474] rendering summary
+2023-03-11 09:07:42,421 INFO    MainThread:11923 [wandb_run.py:_footer_sync_info():3398] logging synced files

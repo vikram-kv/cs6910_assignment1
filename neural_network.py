@@ -41,7 +41,7 @@ class NeuralNetwork:
     def init_parameters(self):
         weights, biases = [None for i in range(self.hlayercount+2)], [None for i in range(self.hlayercount+2)]
         np.random.seed(2)
-        if self.init_method == 'Xavier':
+        if self.init_method == 'xavier' or self.init_method == 'Xavier':
             # uniform dist Xavier init done
             # for hidden layer 1
             for idx in range(1, self.hlayercount+1):
@@ -57,7 +57,7 @@ class NeuralNetwork:
         else:
             # random init done
             # for hidden layer 1
-            scaler = 0.5
+            scaler = 0.1
             for idx in range(1, self.hlayercount+1):
                 weights[idx] = np.random.randn(self.hidden_sizes[idx], self.hidden_sizes[idx - 1]) * scaler
                 biases[idx] = np.random.randn(self.hidden_sizes[idx]) * scaler
