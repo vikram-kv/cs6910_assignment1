@@ -2,6 +2,7 @@ import numpy as np
 from activation_functions import *
 from loss_functions import *
 from optimizers import *
+from tqdm import tqdm
 
 class NeuralNetwork:
 
@@ -105,6 +106,9 @@ class NeuralNetwork:
         
         return weight_gradients, bias_gradients
 
+    # function to split X and y into batches of size batch_size. Required to exploit
+    # power of numpy on matrix operations by "forwarding" and "backwarding" all examples
+    # in a batch simultaneously.
     def make_batches(self, X, y, batch_size):
         batch_X, batch_y = [], []
         for i in range(0, len(X), batch_size):
@@ -119,7 +123,9 @@ class NeuralNetwork:
             batch_X.append(next_X)
             batch_y.append(next_y)
         return batch_X, batch_y
-
+    
+    # function to test the current parameters of the network against validation/test data
+    # again, these data must be in batches
     def test(self, weights, biases, val_batches):
         total_count = 0
         total_correct = 0
@@ -130,16 +136,17 @@ class NeuralNetwork:
             pred_labels = np.argmax(y_pred, axis=0)
             total_count += len(y)
             total_correct += len(np.where(pred_labels == y)[0])
-
-        acc = total_correct / total_count
-        print(f'accuracy = {acc}; loss = {total_loss}')
-        return acc, total_loss
-            
-    # NOTE - ensure batch size divides total train data size
-    def train(self, data, epochs, batchsize, learning_rate):
         
-        (train_X, val_X, train_y, val_y) = data
+        test_acc, test_loss = total_correct/total_count, total_loss/total_count
+        print(f'accuracy = {test_acc}; loss = {test_loss}')
+        return test_acc, test_loss
 
+    # function to train the neural network using train_data and perform validation
+    # (for hyperparameter fine-tuning) using val_data
+    def train(self, train_data, val_data, epochs, batchsize, learning_rate):
+        # batchify the data
+        (train_X, train_y) = train_data
+        (val_X, val_y) = val_data
         train_batches = self.make_batches(train_X, train_y, batchsize)
         val_batches = self.make_batches(val_X, val_y, batchsize)
 
@@ -147,22 +154,24 @@ class NeuralNetwork:
         for e in range(epochs):
             print(f'EPOCH - {e+1}')
             batch_count = 0
-            # 1 batch
-            for X, y in zip(train_batches[0], train_batches[1]):
-                agg_weight_gradients, agg_bias_gradients = [None for i in range(self.hlayercount+2)], [None for i in range(self.hlayercount+2)]
+            # forward and backward over all data (1 epoch)
+            train_loss = 0
+            agg_crct = 0
+            for X, y in tqdm(zip(train_batches[0], train_batches[1]), total=len(train_batches[0])):
+                batch_weight_gradient, batch_bias_gradient = [None for i in range(self.hlayercount+2)], [None for i in range(self.hlayercount+2)]
                 outvalues, outderivs, fin_act_values, y_pred, loss = self.optimizer.forward(weights, biases, X, y)
                 pred_labels = np.argmax(y_pred, axis=0)
                 weight_gradients, bias_gradients = self.optimizer.backward(weights, biases, y, outvalues, outderivs, fin_act_values)
 
-                agg_loss = loss
-                agg_crct = len(np.where(pred_labels == y)[0])
+                train_loss += loss
+                agg_crct += len(np.where(pred_labels == y)[0])
 
                 for idx in range(1, self.hlayercount+2):
-                    agg_bias_gradients[idx] = np.sum(bias_gradients[idx], axis=-1)
-                    agg_weight_gradients[idx] = np.sum(weight_gradients[idx], axis=-1)
+                    batch_bias_gradient[idx] = np.sum(bias_gradients[idx], axis=-1)
+                    batch_weight_gradient[idx] = np.sum(weight_gradients[idx], axis=-1)
                 
                 # make log and test after every batch / epoch - doubt
-                self.optimizer.update_parameters(weights, biases, learning_rate, agg_weight_gradients, agg_bias_gradients)
+                self.optimizer.update_parameters(weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient)
                 batch_count += 1
-                if (batch_count % 50 == 0):
+                if (batch_count % 100 == 0):
                     _, _ = self.test(weights, biases, val_batches)

@@ -9,62 +9,56 @@ class Optimizer:
     def update_parameters(self):
         pass
 
+# a helper function to generate list of zeroed out np matrices for optimizers. uses a neural network's arch to build these lists.
+# used for storing momentum terms, and weighed sum of squared gradients etc ...
+def get_lists(nn):
+    weight_list, bias_list = [None for i in range(nn.hlayercount+2)], [None for i in range(nn.hlayercount+2)]
+    for idx in range(1, nn.hlayercount + 1):
+        weight_list[idx] = np.zeros((nn.hidden_sizes[idx], nn.hidden_sizes[idx - 1]))
+        bias_list[idx] = np.zeros(nn.hidden_sizes[idx])
+    # for output layer
+    outidx = nn.hlayercount + 1
+    weight_list[outidx] = np.zeros((nn.out_layer_size, nn.hidden_sizes[outidx - 1]))
+    bias_list[outidx] = np.zeros(nn.out_layer_size)
+
+# SGD Optimizer
 class sgd(Optimizer):
     def __init__(self, nn, args):
         self.nn = nn
-        self.update_parameters = self.update
-        self.forward = nn.forward
-        self.backward = nn.backward
+        self.forward, self.backward = nn.forward, nn.backward
 
-    def update(self, weights, biases, learning_rate, agg_weight_gradients, agg_bias_gradients):
+    def update_parameters(self, weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient):
         eta = learning_rate
         for idx in range(1, self.nn.hlayercount + 2):
-            weights[idx] = weights[idx] - eta * agg_weight_gradients[idx]
-            biases[idx] -= eta * agg_bias_gradients[idx]
+            weights[idx] -= eta * batch_weight_gradient[idx]
+            biases[idx] -= eta * batch_bias_gradient[idx]
 
+# Momentum Optimizer
 class momentum(Optimizer):
     def __init__(self, nn, args):
         self.beta = args.momentum
         self.nn = nn
-
-        self.weight_momentums, self.bias_momentums = dict(), dict()
-        for idx in range(1, nn.hlayercount + 1):
-            self.weight_momentums[idx] = np.zeros((nn.hidden_sizes[idx], nn.hidden_sizes[idx - 1]))
-            self.bias_momentums[idx] = np.zeros(nn.hidden_sizes[idx])
-        # for output layer
-        outidx = nn.hlayercount + 1
-        self.weight_momentums[outidx] = np.zeros((nn.out_layer_size, nn.hidden_sizes[outidx - 1]))
-        self.bias_momentums[outidx] = np.zeros(nn.out_layer_size)
-
-        self.update_parameters = self.update
-        self.forward = nn.forward
-        self.backward = nn.backward
+        self.weight_momentums, self.bias_momentums = get_lists(nn)
+        # no change to weights at which gradient is found; so, normal nn forward and backward are used
+        self.forward, self.backward = nn.forward, nn.backward
     
-    def update(self, weights, biases, learning_rate, agg_weight_gradients, agg_bias_gradients):
-        eta = learning_rate
-        beta = self.beta
-
+    def update_parameters(self, weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient):
+        eta, beta = learning_rate, self.beta
+        # momentum update rule
         for idx in range(1, self.nn.hlayercount + 2):
-            self.weight_momentums[idx] = beta * self.weight_momentums[idx] + eta * agg_weight_gradients[idx]
-            self.bias_momentums[idx] = beta * self.bias_momentums[idx] + eta * agg_bias_gradients[idx]
+            self.weight_momentums[idx] = beta * self.weight_momentums[idx] + eta * batch_weight_gradient[idx]
+            self.bias_momentums[idx] = beta * self.bias_momentums[idx] + eta * batch_bias_gradient[idx]
             weights[idx] -= self.weight_momentums[idx]
             biases[idx] -= self.bias_momentums[idx]
 
+# Nesterov Accelerated Momentum Optimizer
 class nag(Optimizer):
     def __init__(self, nn, args):
         self.beta = args.momentum
         self.nn = nn
-
-        self.weight_momentums, self.bias_momentums = dict(), dict()
-        for idx in range(1, nn.hlayercount + 1):
-            self.weight_momentums[idx] = np.zeros((nn.hidden_sizes[idx], nn.hidden_sizes[idx - 1]))
-            self.bias_momentums[idx] = np.zeros(nn.hidden_sizes[idx])
-        # for output layer
-        outidx = nn.hlayercount + 1
-        self.weight_momentums[outidx] = np.zeros((nn.out_layer_size, nn.hidden_sizes[outidx - 1]))
-        self.bias_momentums[outidx] = np.zeros(nn.out_layer_size)
-        self.update_parameters = self.update
+        self.weight_momentums, self.bias_momentums = get_lists(nn)
     
+    # function to compute partially updated weights using momentum history/nesterov trick
     def get_partial_update_parameters(self, weights, biases):
         beta = self.beta
         partial_updated_weights, partial_updated_biases = dict(), dict()
@@ -73,158 +67,96 @@ class nag(Optimizer):
             partial_updated_biases[idx] = biases[idx] - beta * self.bias_momentums[idx]
         return partial_updated_weights, partial_updated_biases
 
+    # compute partial updated weights and then use nn forward with these weights
     def forward(self, weights, biases, input : np.array, true_label):
         partial_updated_weights, partial_updated_biases = self.get_partial_update_parameters(weights, biases)
         return self.nn.forward(partial_updated_weights, partial_updated_biases, input, true_label)
 
+    # compute partial updated weights and then use nn backward with these weights
     def backward(self, weights, biases, true_label, outvalues, outderivs):
         partial_updated_weights, partial_updated_biases = self.get_partial_update_parameters(weights, biases)
         return self.nn.backward(partial_updated_weights, partial_updated_biases, true_label, outvalues, outderivs)
 
-    def update(self, weights, biases, learning_rate, agg_weight_gradients, agg_bias_gradients):
+    def update_parameters(self, weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient):
         eta = learning_rate
         beta = self.beta
 
         for idx in range(1, self.nn.hlayercount + 2):
-            self.weight_momentums[idx] = beta * self.weight_momentums[idx] + eta * agg_weight_gradients[idx]
-            self.bias_momentums[idx] = beta * self.bias_momentums[idx] + eta * agg_bias_gradients[idx]
+            self.weight_momentums[idx] = beta * self.weight_momentums[idx] + eta * batch_weight_gradient[idx]
+            self.bias_momentums[idx] = beta * self.bias_momentums[idx] + eta * batch_bias_gradient[idx]
             weights[idx] -= self.weight_momentums[idx]
             biases[idx] -= self.bias_momentums[idx]
 
+# RMSProp Optimizer
 class rmsprop(Optimizer):
     def __init__(self, nn, args):
-        self.beta = args.beta
+        self.beta, self.epsilon = args.beta, args.epsilon
         self.nn = nn
-        self.epsilon = args.epsilon
+        self.discounted_squared_weights, self.discounted_squared_biases = get_lists(nn)
+        self.forward, self.backward = nn.forward, nn.backward
 
-        self.weight_denoms, self.bias_denoms = dict(), dict()
-        for idx in range(1, nn.hlayercount + 1):
-            self.weight_denoms[idx] = np.zeros((nn.hidden_sizes[idx], nn.hidden_sizes[idx - 1]))
-            self.bias_denoms[idx] = np.zeros(nn.hidden_sizes[idx])
-
-        # for output layer
-        outidx = nn.hlayercount + 1
-        self.weight_denoms[outidx] = np.zeros((nn.out_layer_size, nn.hidden_sizes[outidx - 1]))
-        self.bias_denoms[outidx] = np.zeros(nn.out_layer_size)
-        self.forward = nn.forward
-        self.backward = nn.backward
-        self.update_parameters = self.update
-
-    def update(self, weights, biases, learning_rate, agg_weight_gradients, agg_bias_gradients):
-        eta = learning_rate
-        beta = self.beta
-        epsilon = self.epsilon
-
+    def update_parameters(self, weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient):
+        eta, beta, eps = learning_rate, self.beta, self.epsilon
         for idx in range(1, self.nn.hlayercount + 2):
-            self.weight_denoms[idx] = beta * self.weight_denoms[idx] + (1-beta) * np.square(agg_weight_gradients[idx])
-            self.bias_denoms[idx] = beta * self.bias_denoms[idx] + (1-beta) * np.square(agg_bias_gradients[idx])
-            weights[idx] -= agg_weight_gradients[idx] * (eta) / np.sqrt(epsilon + self.weight_denoms[idx])
-            biases[idx] -= agg_bias_gradients[idx] * (eta) / np.sqrt(epsilon + self.bias_denoms[idx])
+            self.discounted_squared_weights[idx] = beta * self.discounted_squared_weights[idx] + (1-beta) * np.square(batch_weight_gradient[idx])
+            self.discounted_squared_biases[idx] = beta * self.discounted_squared_biases[idx] + (1-beta) * np.square(batch_bias_gradient[idx])
+            weights[idx] -= batch_weight_gradient[idx] * eta / (eps + np.sqrt(self.discounted_squared_weights[idx]))
+            biases[idx] -= batch_bias_gradient[idx] * eta / (eps + np.sqrt(self.discounted_squared_biases[idx]))
 
+# ADAM Optimizer
 class adam(Optimizer):
     def __init__(self, nn, args):
-        self.beta1 = args.beta1
-        self.beta2 = args.beta2
+        self.beta1, self.beta2, self.epsilon = args.beta1, args.beta2, args.epsilon
         self.nn = nn
-        self.epsilon = args.epsilon
-
-        self.weight_denoms, self.bias_denoms = dict(), dict()
-        for idx in range(1, nn.hlayercount + 1):
-            self.weight_denoms[idx] = np.zeros((nn.hidden_sizes[idx], nn.hidden_sizes[idx - 1]))
-            self.bias_denoms[idx] = np.zeros(nn.hidden_sizes[idx])
-
-        # for output layer
-        outidx = nn.hlayercount + 1
-        self.weight_denoms[outidx] = np.zeros((nn.out_layer_size, nn.hidden_sizes[outidx - 1]))
-        self.bias_denoms[outidx] = np.zeros(nn.out_layer_size)
-
-        self.weight_momentums, self.bias_momentums = dict(), dict()
-        for idx in range(1, nn.hlayercount + 1):
-            self.weight_momentums[idx] = np.zeros((nn.hidden_sizes[idx], nn.hidden_sizes[idx - 1]))
-            self.bias_momentums[idx] = np.zeros(nn.hidden_sizes[idx])
-
-        # for output layer
-        outidx = nn.hlayercount + 1
-        self.weight_momentums[outidx] = np.zeros((nn.out_layer_size, nn.hidden_sizes[outidx - 1]))
-        self.bias_momentums[outidx] = np.zeros(nn.out_layer_size)
-
-        self.forward = nn.forward
-        self.backward = nn.backward
-        self.update_parameters = self.update
+        self.weight_momentums, self.bias_momentums = get_lists(nn)
+        self.discounted_squared_weights, self.discounted_squared_biases = get_lists(nn)
+        self.forward, self.backward = nn.forward, nn.backward
         self.step_no = 0
 
-    def update(self, weights, biases, learning_rate, agg_weight_gradients, agg_bias_gradients):
-        eta = learning_rate
-        beta1 = self.beta1
-        beta2 = self.beta2
-        epsilon = self.epsilon
-
+    def update(self, weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient):
+        eta, beta1, beta2, eps = learning_rate, self.beta1, self.beta2, self.epsilon
         self.step_no += 1
         t = self.step_no
-
         for idx in range(1, self.nn.hlayercount + 2):
-            self.weight_momentums[idx] = beta1 * self.weight_momentums[idx] + (1-beta1) * agg_weight_gradients[idx]
-            self.bias_momentums[idx] = beta1 * self.bias_momentums[idx] + (1-beta1) * agg_bias_gradients[idx]
-            self.weight_denoms[idx] = beta2 * self.weight_denoms[idx] + (1-beta2) * np.square(agg_weight_gradients[idx])
-            self.bias_denoms[idx] = beta2 * self.bias_denoms[idx] + (1-beta2) * np.square(agg_bias_gradients[idx])
+            # adam momentum and squared gradient history computation
+            self.weight_momentums[idx] = beta1 * self.weight_momentums[idx] + (1-beta1) * batch_weight_gradient[idx]
+            self.bias_momentums[idx] = beta1 * self.bias_momentums[idx] + (1-beta1) * batch_bias_gradient[idx]
+            self.discounted_squared_weights[idx] = beta2 * self.discounted_squared_weights[idx] + (1-beta2) * np.square(batch_weight_gradient[idx])
+            self.discounted_squared_biases[idx] = beta2 * self.discounted_squared_biases[idx] + (1-beta2) * np.square(batch_bias_gradient[idx])
 
-            # normalize momentum and denominator factor
-            cur_weight_momentum_hat, cur_bias_momentum_hat = self.weight_momentums[idx] / (1 - np.power(beta1, t)), self.bias_momentums[idx] / (1 - np.power(beta1, t))
-            cur_weight_denom_hat, cur_bias_denom_hat = self.weight_denoms[idx] / (1 - np.power(beta2, t)), self.bias_denoms[idx] / (1 - np.power(beta2, t))
+            # bias correction for numerator(momentum) and denominator(discounted squared gradient) factors
+            weight_num_hat, bias_num_hat = self.weight_momentums[idx] / (1 - np.power(beta1, t)), self.bias_momentums[idx] / (1 - np.power(beta1, t))
+            weight_den_hat, bias_den_hat = self.discounted_squared_weights[idx] / (1 - np.power(beta2, t)), self.discounted_squared_biases[idx] / (1 - np.power(beta2, t))
 
-            weights[idx] -= cur_weight_momentum_hat * (eta) / np.sqrt(epsilon + cur_weight_denom_hat)
-            biases[idx] -= cur_bias_momentum_hat * (eta) / np.sqrt(epsilon + cur_bias_denom_hat)
+            # adam update
+            weights[idx] -= weight_num_hat * eta / (eps + np.sqrt(weight_den_hat))
+            biases[idx] -= bias_num_hat * eta / (eps + np.sqrt(bias_den_hat))
 
+# Nesterov ADAM Optimizer
 class nadam(Optimizer):
     def __init__(self, nn, args):
-        self.beta1 = args.beta1
-        self.beta2 = args.beta2
+        self.beta1, self.beta2, self.epsilon = args.beta1, args.beta2, args.epsilon
         self.nn = nn
-        self.epsilon = args.epsilon
-
-        self.weight_denoms, self.bias_denoms = dict(), dict()
-        for idx in range(1, nn.hlayercount + 1):
-            self.weight_denoms[idx] = np.zeros((nn.hidden_sizes[idx], nn.hidden_sizes[idx - 1]))
-            self.bias_denoms[idx] = np.zeros(nn.hidden_sizes[idx])
-
-        # for output layer
-        outidx = nn.hlayercount + 1
-        self.weight_denoms[outidx] = np.zeros((nn.out_layer_size, nn.hidden_sizes[outidx - 1]))
-        self.bias_denoms[outidx] = np.zeros(nn.out_layer_size)
-
-        self.weight_momentums, self.bias_momentums = dict(), dict()
-        for idx in range(1, nn.hlayercount + 1):
-            self.weight_momentums[idx] = np.zeros((nn.hidden_sizes[idx], nn.hidden_sizes[idx - 1]))
-            self.bias_momentums[idx] = np.zeros(nn.hidden_sizes[idx])
-
-        # for output layer
-        outidx = nn.hlayercount + 1
-        self.weight_momentums[outidx] = np.zeros((nn.out_layer_size, nn.hidden_sizes[outidx - 1]))
-        self.bias_momentums[outidx] = np.zeros(nn.out_layer_size)
-
-        self.forward = nn.forward
-        self.backward = nn.backward
-        self.update_parameters = self.update
+        self.weight_momentums, self.bias_momentums = get_lists(nn)
+        self.discounted_squared_weights, self.discounted_squared_biases = get_lists(nn)
+        self.forward, self.backward = nn.forward, nn.backward
         self.step_no = 0
 
-    def update(self, weights, biases, learning_rate, agg_weight_gradients, agg_bias_gradients):
-        eta = learning_rate
-        beta1 = self.beta1
-        beta2 = self.beta2
-        epsilon = self.epsilon
-
+    def update(self, weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient):
+        eta, beta1, beta2, eps = learning_rate, self.beta1, self.beta2, self.epsilon
         self.step_no += 1
         t = self.step_no
-
         for idx in range(1, self.nn.hlayercount + 2):
-            self.weight_momentums[idx] = beta1 * self.weight_momentums[idx] + (1-beta1) * agg_weight_gradients[idx]
-            self.bias_momentums[idx] = beta1 * self.bias_momentums[idx] + (1-beta1) * agg_bias_gradients[idx]
-            self.weight_denoms[idx] = beta2 * self.weight_denoms[idx] + (1-beta2) * np.square(agg_weight_gradients[idx])
-            self.bias_denoms[idx] = beta2 * self.bias_denoms[idx] + (1-beta2) * np.square(agg_bias_gradients[idx])
+            # nadam momentum and squared gradient history computation
+            self.weight_momentums[idx] = beta1 * self.weight_momentums[idx] + (1-beta1) * batch_weight_gradient[idx]
+            self.bias_momentums[idx] = beta1 * self.bias_momentums[idx] + (1-beta1) * batch_bias_gradient[idx]
+            self.discounted_squared_weights[idx] = beta2 * self.discounted_squared_weights[idx] + (1-beta2) * np.square(batch_weight_gradient[idx])
+            self.discounted_squared_biases[idx] = beta2 * self.discounted_squared_biases[idx] + (1-beta2) * np.square(batch_bias_gradient[idx])
 
-            cur_weight_momentum_hat, cur_bias_momentum_hat = self.weight_momentums[idx] / (1 - np.power(beta1, t)), self.bias_momentums[idx] / (1 - np.power(beta1, t))
-            cur_weight_denom_hat, cur_bias_denom_hat = self.weight_denoms[idx] / (1 - np.power(beta2, t)), self.bias_denoms[idx] / (1 - np.power(beta2, t))
+            # bias correction for numerator(momentum) and denominator(discounted squared gradient) factors
+            weight_num_hat, bias_num_hat = self.weight_momentums[idx] / (1 - np.power(beta1, t)), self.bias_momentums[idx] / (1 - np.power(beta1, t))
+            weight_den_hat, bias_den_hat = self.discounted_squared_weights[idx] / (1 - np.power(beta2, t)), self.discounted_squared_biases[idx] / (1 - np.power(beta2, t))
 
-            # nesterov trick update
-            weights[idx] -= (beta1 * cur_weight_momentum_hat + (1-beta1) * agg_weight_gradients[idx]) * (eta) / np.sqrt(epsilon + cur_weight_denom_hat)
-            biases[idx] -= (beta1 * cur_bias_momentum_hat + (1-beta1) * agg_bias_gradients[idx]) * (eta) / np.sqrt(epsilon + cur_bias_denom_hat)
+            # nadam update
+            weights[idx] -= (beta1 * weight_num_hat + (1-beta1) * batch_weight_gradient[idx]/(1 - np.power(beta1, t))) * eta / (eps + np.sqrt(weight_den_hat))
+            biases[idx] -= (beta1 * bias_num_hat + beta1 + (1-beta1) * batch_bias_gradient[idx]/(1 - np.power(beta1, t))) * eta / (eps + np.sqrt(bias_den_hat))

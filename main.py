@@ -3,7 +3,7 @@ from activation_functions import *
 from neural_network import *
 import wandb
 from sklearn.model_selection import train_test_split
-from keras.datasets import fashion_mnist
+from keras.datasets import fashion_mnist, mnist
 
 import argparse as ap
 
@@ -28,6 +28,7 @@ def gen_parser():
     parser.add_argument('-nhl', '--num_layers', dest='num_layers', default=5, type=int, help='Number of hidden layers used in feedforward neural network')
     parser.add_argument('-sz', '--hidden_size', dest='hidden_size', default=128, type=int, help='Number of hidden neurons in a feedforward layer')
     parser.add_argument('-a', '--activation', dest='activation', default='tanh', choices=['identity', 'sigmoid', 'tanh', 'relu'], help='Activation function to be used')
+    parser.add_argument('-l', '--log_data', dest='logging', type=int, default=0, help='non-zero for wandb sweeping and logging')
     return parser
 
 def normalize_pixels(input : np.array):
@@ -47,5 +48,5 @@ if __name__ == '__main__':
     train_X, val_X, train_y, val_y = train_test_split(x_train, y_train, test_size=0.1, shuffle=True, random_state=1)
     
     nn = NeuralNetwork(args, 10, train_X.shape[1])
-    nn.train((train_X, val_X, train_y, val_y), args.epochs, args.batch_size, args.learning_rate)
+    nn.train((train_X, train_y), (val_X, val_y), args.epochs, args.batch_size, args.learning_rate)
     

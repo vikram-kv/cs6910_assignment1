@@ -28,7 +28,7 @@ class CrossEntropyLoss:
     def compute_loss_and_final_layer_gradients_preact(self, final_layer_act_values, labels, needgradients=False):
         y_pred = self.safe_softmax(final_layer_act_values)
         y_true = self.convert_label_to_vector(labels, y_pred)
-        loss = -np.mean(np.log2(np.sum(np.multiply(y_pred, y_true), axis=0)))
+        loss = -np.sum(np.log2(np.sum(np.multiply(y_pred, y_true), axis=0)))
         if not needgradients:
             return y_pred, loss
         gradients_fin_act_values = y_pred - y_true
@@ -59,7 +59,7 @@ class MeanSquareErrorLoss:
     def compute_loss_and_final_layer_gradients_preact(self, final_layer_act_values, labels, need_gradients=False):
         y_pred = self.safe_softmax(final_layer_act_values)
         y_true = self.convert_label_to_vector(labels, y_pred)
-        loss = np.mean(np.sum(np.square(y_pred - y_true), axis=0)) * 0.5
+        loss = np.sum(np.sum(np.square(y_pred - y_true), axis=0)) * 0.5
         if not need_gradients:
             return y_pred, loss
         
