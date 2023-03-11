@@ -20,6 +20,7 @@ def get_lists(nn):
     outidx = nn.hlayercount + 1
     weight_list[outidx] = np.zeros((nn.out_layer_size, nn.hidden_sizes[outidx - 1]))
     bias_list[outidx] = np.zeros(nn.out_layer_size)
+    return weight_list, bias_list
 
 # SGD Optimizer
 class sgd(Optimizer):
@@ -113,7 +114,7 @@ class adam(Optimizer):
         self.forward, self.backward = nn.forward, nn.backward
         self.step_no = 0
 
-    def update(self, weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient):
+    def update_parameters(self, weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient):
         eta, beta1, beta2, eps = learning_rate, self.beta1, self.beta2, self.epsilon
         self.step_no += 1
         t = self.step_no
@@ -142,7 +143,7 @@ class nadam(Optimizer):
         self.forward, self.backward = nn.forward, nn.backward
         self.step_no = 0
 
-    def update(self, weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient):
+    def update_parameters(self, weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient):
         eta, beta1, beta2, eps = learning_rate, self.beta1, self.beta2, self.epsilon
         self.step_no += 1
         t = self.step_no

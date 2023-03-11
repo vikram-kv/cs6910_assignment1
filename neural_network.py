@@ -9,10 +9,10 @@ class NeuralNetwork:
     def __init__(self, args, num_classes, in_dim):
         self.hlayercount = args.num_layers
         # hidden layers are numbered from 1 ... hlayercount; outputlayer is hlayercount + 1
-        # number 0 is not used
         self.hidden_actfn = [get_act_func_and_deriv(args.activation) for _ in range(self.hlayercount + 1)]
-        self.hidden_sizes = [args.hidden_size for _ in range(self.hlayercount + 1)]
-        self.hidden_sizes[0] = in_dim # for ease of initialization
+        self.hidden_sizes = [args.hidden_size for _ in range(self.hlayercount + 2)]
+        self.hidden_sizes[0] = in_dim # for ease of weight init
+        self.hidden_sizes[self.hlayercount + 1] = num_classes # for ease of weight init
         self.init_method = args.weight_init
         self.weight_decay = args.weight_decay
         self.loss_fn = args.loss
@@ -20,6 +20,7 @@ class NeuralNetwork:
         self.in_layer_size = in_dim
         self.optimizer = self.get_optimizer_by_name(args)
         self.loss_fn = get_loss_by_name(args.loss)
+        self.act_name = args.activation
     
     # add custom optimizer's entry here
     def get_optimizer_by_name(self, args):
@@ -38,35 +39,34 @@ class NeuralNetwork:
         else:
             Exception('Optimizer Not Implemented'); exit(-1)
 
-    # implement Xavier initialization
     def init_parameters(self):
         weights, biases = [None for i in range(self.hlayercount+2)], [None for i in range(self.hlayercount+2)]
         np.random.seed(2)
-        if self.init_method == 'xavier' or self.init_method == 'Xavier':
-            # uniform dist Xavier init done
-            # for hidden layer 1
-            for idx in range(1, self.hlayercount+1):
+        # gains for xavier init [scaling factors for better performance]
+        gains = {'tanh' : 5/3, 'relu' : np.sqrt(2), 'leakyrelu' : np.sqrt(2), 'elu':np.sqrt(2)}
+        gain = 1.0
+        if self.act_name in gains.keys():
+            gain = gains[self.act_name]
+        if self.init_method == 'xavier':
+            # uniform dist Xavier initialization
+            for idx in range(1, self.hlayercount+2):
                 ran = np.sqrt(6/(self.hidden_sizes[idx] + self.hidden_sizes[idx-1]))
-                weights[idx] = np.random.uniform(low=-ran,high=ran,size=(self.hidden_sizes[idx], self.hidden_sizes[idx - 1]))
-                biases[idx] = np.random.uniform(low=-ran,high=ran,size=(self.hidden_sizes[idx]))
-            
-            # for output layer
-            outidx = self.hlayercount + 1
-            ran = np.sqrt(6/(self.out_layer_size + self.hidden_sizes[outidx-1]))
-            weights[outidx] = np.random.uniform(low=-ran,high=ran,size=(self.out_layer_size, self.hidden_sizes[outidx - 1]))
-            biases[outidx] = np.random.uniform(low=-ran,high=ran,size=(self.out_layer_size))
+                weights[idx] = gain * np.random.uniform(low=-ran,high=ran,size=(self.hidden_sizes[idx], self.hidden_sizes[idx - 1]))
+                biases[idx] = gain * np.random.uniform(low=-ran,high=ran,size=(self.hidden_sizes[idx]))
+        
+        elif self.init_method == 'he':
+            # uniform kaiming (He) initialization with mode = fanin
+            for idx in range(1, self.hlayercount+2):
+                ran = np.sqrt(3/(self.hidden_sizes[idx-1]))
+                weights[idx] = gain * np.random.uniform(low=-ran,high=ran,size=(self.hidden_sizes[idx], self.hidden_sizes[idx - 1]))
+                biases[idx] = gain * np.random.uniform(low=-ran,high=ran,size=(self.hidden_sizes[idx]))
+        
         else:
-            # random init done
-            # for hidden layer 1
-            scaler = 0.1
-            for idx in range(1, self.hlayercount+1):
-                weights[idx] = np.random.randn(self.hidden_sizes[idx], self.hidden_sizes[idx - 1]) * scaler
-                biases[idx] = np.random.randn(self.hidden_sizes[idx]) * scaler
-            
-            # for output layer
-            outidx = self.hlayercount + 1
-            weights[outidx] = np.random.randn(self.out_layer_size, self.hidden_sizes[outidx - 1]) * scaler
-            biases[outidx] = np.random.randn(self.out_layer_size) * scaler
+            # random initialization with stdev of 0.1
+            gain = 0.1
+            for idx in range(1, self.hlayercount+2):
+                weights[idx] = gain * np.random.randn(self.hidden_sizes[idx], self.hidden_sizes[idx - 1])
+                biases[idx] = gain * np.random.randn(self.hidden_sizes[idx])
 
         return weights, biases
 
@@ -170,8 +170,10 @@ class NeuralNetwork:
                     batch_bias_gradient[idx] = np.sum(bias_gradients[idx], axis=-1)
                     batch_weight_gradient[idx] = np.sum(weight_gradients[idx], axis=-1)
                 
-                # make log and test after every batch / epoch - doubt
+                # make log and test after every batch / epoch
                 self.optimizer.update_parameters(weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient)
                 batch_count += 1
                 if (batch_count % 100 == 0):
                     _, _ = self.test(weights, biases, val_batches)
+
+        _, _ = self.test(weights, biases, val_batches)
