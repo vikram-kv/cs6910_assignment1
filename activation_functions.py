@@ -11,10 +11,10 @@ def sigmoid_deriv(fx):
 
 # relu activation function and derivative
 def relu_value(x):
-    return np.where(x>0, 1.0, 0.0) * x
+    return np.where(x>0, x, 0.0)
     
 def relu_deriv(fx):
-    return np.where(fx>0,1.0,0.0)
+    return np.where(fx>0, 1.0, 0.0)
 
 # tanh activation function and derivative
 def tanh_value(x):
@@ -31,6 +31,20 @@ def linear_value(x):
 def linear_deriv(fx):
     return np.ones_like(fx)
 
+# leaky_relu activation function and derivative
+def leakyrelu_value(x):
+    return np.where(x>0, x, 0.01 * x)
+
+def leakyrelu_deriv(fx):
+    return np.where(fx>0, 1, 0.01)
+
+# elu activation function and derivative
+def elu_value(x):
+    return np.where(x>0, x, 1.0 * (np.exp(x) - 1))
+    
+def elu_deriv(fx):
+    return np.where(fx>0, 1.0, fx + 1.0)
+
 # function to return the function operator and derivative operator for a activation function by name
 def get_act_func_and_deriv(name : str):
     if (name == 'linear'):
@@ -41,5 +55,9 @@ def get_act_func_and_deriv(name : str):
         return sigmoid_value, sigmoid_deriv
     elif (name == 'relu'):
         return relu_value, relu_deriv
+    elif (name == 'leakyrelu'):
+        return leakyrelu_value, leakyrelu_deriv
+    elif (name == 'elu'):
+        return elu_value, elu_deriv
     else:
         raise Exception('Activation Function Not Implemented'); exit(-1)
