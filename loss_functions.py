@@ -12,7 +12,7 @@ class CrossEntropyLoss:
         input -= np.max(input, axis=0)
         input = np.exp(input)
         pred_probabilities = input/(np.sum(input, axis=0))
-        pred_probabilities = np.where(pred_probabilities>1e-10, pred_probabilities,1e-10) # avoid zero loss
+        pred_probabilities = np.where(pred_probabilities>1e-15, pred_probabilities,1e-15) # avoid zero loss
         return pred_probabilities
     
     # converts the true class to 1-hot encoding.
