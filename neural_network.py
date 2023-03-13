@@ -62,8 +62,8 @@ class NeuralNetwork:
                 biases[idx] = gain * np.random.uniform(low=-ran,high=ran,size=(self.hidden_sizes[idx]))
         
         else:
-            # random initialization with stddev of 0.1
-            gain = 0.1
+            # random initialization with stddev of 0.15
+            gain = 0.15
             for idx in range(1, self.hlayercount+2):
                 weights[idx] = gain * np.random.randn(self.hidden_sizes[idx], self.hidden_sizes[idx - 1])
                 biases[idx] = gain * np.random.randn(self.hidden_sizes[idx])
