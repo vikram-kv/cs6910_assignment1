@@ -3,13 +3,13 @@ from activation_functions import *
 from loss_functions import *
 from optimizers import *
 from tqdm import tqdm
+import wandb
 
 class NeuralNetwork:
-
     def __init__(self, args, num_classes, in_dim):
-        self.hlayercount = args.num_layers
+        self.hlayercount = args.num_hlayers
         # hidden layers are numbered from 1 ... hlayercount; outputlayer is hlayercount + 1
-        self.hidden_actfn = [get_act_func_and_deriv(args.activation) for _ in range(self.hlayercount + 1)]
+        self.hidden_actfn = [get_act_func_and_deriv(args.activation_function) for _ in range(self.hlayercount + 1)]
         self.hidden_sizes = [args.hidden_size for _ in range(self.hlayercount + 2)]
         self.hidden_sizes[0] = in_dim # for ease of weight init
         self.hidden_sizes[self.hlayercount + 1] = num_classes # for ease of weight init
@@ -20,7 +20,7 @@ class NeuralNetwork:
         self.in_layer_size = in_dim
         self.optimizer = self.get_optimizer_by_name(args)
         self.loss_fn = get_loss_by_name(args.loss)
-        self.act_name = args.activation
+        self.act_name = args.activation_function
     
     # add custom optimizer's entry here
     def get_optimizer_by_name(self, args):
@@ -41,12 +41,12 @@ class NeuralNetwork:
 
     def init_parameters(self):
         weights, biases = [None for i in range(self.hlayercount+2)], [None for i in range(self.hlayercount+2)]
-        np.random.seed(2)
-        # gains for xavier init [scaling factors for better performance]
-        gains = {'tanh' : 5/3, 'relu' : np.sqrt(2), 'leakyrelu' : np.sqrt(2), 'elu':np.sqrt(2)}
+        np.random.seed(42)
+        # gains for xavier init [scaling factors] - did not improve performance; hence removed
+        # gains = {'tanh' : 5/3, 'relu' : np.sqrt(2), 'leakyrelu' : np.sqrt(2), 'elu':np.sqrt(2)}
+        # if self.act_name in gains.keys():
+        #    gain = gains[self.act_name]
         gain = 1.0
-        if self.act_name in gains.keys():
-            gain = gains[self.act_name]
         if self.init_method == 'xavier':
             # uniform dist Xavier initialization
             for idx in range(1, self.hlayercount+2):
@@ -62,7 +62,7 @@ class NeuralNetwork:
                 biases[idx] = gain * np.random.uniform(low=-ran,high=ran,size=(self.hidden_sizes[idx]))
         
         else:
-            # random initialization with stdev of 0.1
+            # random initialization with stddev of 0.1
             gain = 0.1
             for idx in range(1, self.hlayercount+2):
                 weights[idx] = gain * np.random.randn(self.hidden_sizes[idx], self.hidden_sizes[idx - 1])
@@ -126,24 +126,24 @@ class NeuralNetwork:
     
     # function to test the current parameters of the network against validation/test data
     # again, these data must be in batches
-    def test(self, weights, biases, val_batches):
+    def test(self, weights, biases, batches, tname):
         total_count = 0
         total_correct = 0
         total_loss = 0.0
-        for X, y in zip(val_batches[0], val_batches[1]):
+        for X, y in zip(batches[0], batches[1]):
             _, _, _, y_pred, loss = self.optimizer.forward(weights, biases, X, y)
             total_loss += loss
             pred_labels = np.argmax(y_pred, axis=0)
             total_count += len(y)
             total_correct += len(np.where(pred_labels == y)[0])
         
-        test_acc, test_loss = total_correct/total_count, total_loss/total_count
-        print(f'accuracy = {test_acc}; loss = {test_loss}')
-        return test_acc, test_loss
+        tacc, tloss = total_correct/total_count, total_loss/total_count
+        print(f'{tname} accuracy = {tacc}; {tname} loss = {tloss}')
+        return tacc, tloss
 
     # function to train the neural network using train_data and perform validation
     # (for hyperparameter fine-tuning) using val_data
-    def train(self, train_data, val_data, epochs, batchsize, learning_rate):
+    def train(self, train_data, val_data, epochs, batchsize, learning_rate, silent=True, log_wandb=False):
         # batchify the data
         (train_X, train_y) = train_data
         (val_X, val_y) = val_data
@@ -152,28 +152,37 @@ class NeuralNetwork:
 
         weights, biases = self.init_parameters()
         for e in range(epochs):
-            print(f'EPOCH - {e+1}')
-            batch_count = 0
             # forward and backward over all data (1 epoch)
-            train_loss = 0
-            agg_crct = 0
+            counter = 0 # for non-silent mode; we will calculate val loss and val acc every 100 train batches; this will be printed
             for X, y in tqdm(zip(train_batches[0], train_batches[1]), total=len(train_batches[0])):
+                counter += 1
                 batch_weight_gradient, batch_bias_gradient = [None for i in range(self.hlayercount+2)], [None for i in range(self.hlayercount+2)]
                 outvalues, outderivs, fin_act_values, y_pred, loss = self.optimizer.forward(weights, biases, X, y)
-                pred_labels = np.argmax(y_pred, axis=0)
                 weight_gradients, bias_gradients = self.optimizer.backward(weights, biases, y, outvalues, outderivs, fin_act_values)
 
-                train_loss += loss
-                agg_crct += len(np.where(pred_labels == y)[0])
-
+                # aggregating all gradients and adding the regularization factor
                 for idx in range(1, self.hlayercount+2):
                     batch_bias_gradient[idx] = np.sum(bias_gradients[idx], axis=-1)
                     batch_weight_gradient[idx] = np.sum(weight_gradients[idx], axis=-1)
-                
-                # make log and test after every batch / epoch
-                self.optimizer.update_parameters(weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient)
-                batch_count += 1
-                if (batch_count % 100 == 0):
-                    _, _ = self.test(weights, biases, val_batches)
 
-        _, _ = self.test(weights, biases, val_batches)
+                    # L2 regularization -> one update for every optimizer step
+                    batch_bias_gradient[idx] += self.weight_decay * biases[idx]
+                    batch_weight_gradient[idx] += self.weight_decay * weights[idx]
+
+                # make log and test after every epoch
+                self.optimizer.update_parameters(weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient)
+                if (not silent and counter == 100):
+                    _, _ = self.test(weights, biases, val_batches, 'cur validation')
+                    counter = 0
+            
+            print(f'epoch - {e+1}')
+            train_acc, train_loss = self.test(weights, biases, train_batches,'train')
+            validation_acc, validation_loss = self.test(weights, biases, val_batches,'validation')
+            if log_wandb:
+                wandb.log({'epoch' : e+1, 
+                           'train_loss' : train_loss,
+                           'train_acc' : train_acc,
+                           'validation_loss' : validation_loss,
+                           'validation_acc' : validation_acc
+                           })
+        return weights, biases

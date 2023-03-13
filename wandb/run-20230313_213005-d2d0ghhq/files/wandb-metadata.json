@@ -1,0 +1,82 @@
+{
+    "os": "Linux-5.15.0-67-generic-x86_64-with-glibc2.31",
+    "python": "3.9.16",
+    "heartbeatAt": "2023-03-13T16:00:08.568722",
+    "startedAt": "2023-03-13T16:00:05.601748",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "-uw",
+        "1",
+        "-rn",
+        "test_run"
+    ],
+    "state": "running",
+    "program": "/home/vikram/Desktop/Deep Learning/cs6910_assignment1/main.py",
+    "codePath": "main.py",
+    "git": {
+        "remote": "https://github.com/vikram-kv/cs6910_assignment1",
+        "commit": "e4fd9857a45dbae9c3747c6ad72f5375f64265ed"
+    },
+    "email": "cs19b021@smail.iitm.ac.in",
+    "root": "/home/vikram/Desktop/Deep Learning/cs6910_assignment1",
+    "host": "VikramUbuntu",
+    "username": "vikram",
+    "executable": "/home/vikram/miniconda3/envs/dlenv/bin/python3",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 2.212,
+        "min": 800.0,
+        "max": 4100.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2.4,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 2.4,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 2.4,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 2.4,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 2.4,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 2.4,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 0.896,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 2.4,
+            "min": 800.0,
+            "max": 4100.0
+        }
+    ],
+    "disk": {
+        "total": 88.6217041015625,
+        "used": 31.136703491210938
+    },
+    "memory": {
+        "total": 7.607265472412109
+    }
+}

@@ -74,9 +74,9 @@ class nag(Optimizer):
         return self.nn.forward(partial_updated_weights, partial_updated_biases, input, true_label)
 
     # compute partial updated weights and then use nn backward with these weights
-    def backward(self, weights, biases, true_label, outvalues, outderivs):
+    def backward(self, weights, biases, true_label, outvalues, outderivs, fin_act_values):
         partial_updated_weights, partial_updated_biases = self.get_partial_update_parameters(weights, biases)
-        return self.nn.backward(partial_updated_weights, partial_updated_biases, true_label, outvalues, outderivs)
+        return self.nn.backward(partial_updated_weights, partial_updated_biases, true_label, outvalues, outderivs, fin_act_values)
 
     def update_parameters(self, weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient):
         eta = learning_rate

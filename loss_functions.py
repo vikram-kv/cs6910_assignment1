@@ -12,6 +12,7 @@ class CrossEntropyLoss:
         input -= np.max(input, axis=0)
         input = np.exp(input)
         pred_probabilities = input/(np.sum(input, axis=0))
+        pred_probabilities = np.where(pred_probabilities>1e-10, pred_probabilities,1e-10) # avoid zero loss
         return pred_probabilities
     
     # converts the true class to 1-hot encoding.
@@ -31,7 +32,7 @@ class CrossEntropyLoss:
         loss = -np.sum(np.log2(np.sum(np.multiply(y_pred, y_true), axis=0)))
         if not needgradients:
             return y_pred, loss
-        gradients_fin_act_values = y_pred - y_true
+        gradients_fin_act_values = (y_pred - y_true)
         return y_pred, loss, gradients_fin_act_values
     
 class MeanSquareErrorLoss:
@@ -42,6 +43,7 @@ class MeanSquareErrorLoss:
         input -= np.max(input, axis=0)
         input = np.exp(input)
         pred_probabilities = input/(np.sum(input, axis=0))
+        pred_probabilities = np.where(pred_probabilities>1e-15, pred_probabilities,1e-15) # avoid zero loss
         return pred_probabilities
     
     # converts the true class to 1-hot encoding.
@@ -64,10 +66,10 @@ class MeanSquareErrorLoss:
             return y_pred, loss
         
         # it can be shown that the gradients matrix is add_term - sub_term as defined below.
-        # taking one example (1 column) to see this helps
+        # take one example (1 column) to see that this helps
         add_term = np.multiply(y_pred, y_pred - y_true)
         sub_term = np.multiply(y_pred, np.sum(add_term, axis=0))
-        gradients_fin_act_values = add_term - sub_term
+        gradients_fin_act_values = (add_term - sub_term)
         return y_pred, loss, gradients_fin_act_values
 
 # add custom loss function's entry here
