@@ -1,0 +1,33 @@
+2023-03-14 23:24:04,904 INFO    Thread-9  :55300 [wandb_setup.py:_flush():68] Configure stats pid to 55300
+2023-03-14 23:24:04,904 INFO    Thread-9  :55300 [wandb_setup.py:_flush():68] Loading settings from /home/vikram/.config/wandb/settings
+2023-03-14 23:24:04,905 INFO    Thread-9  :55300 [wandb_setup.py:_flush():68] Loading settings from /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/settings
+2023-03-14 23:24:04,905 INFO    Thread-9  :55300 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True', 'root_dir': '/home/vikram/Desktop/Deep Learning/cs6910_assignment1', 'entity': 'cs19b021', 'project': 'cs6910-assignment1', 'run_id': 'hoexb13k', 'sweep_param_path': '/home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/sweep-g8kfz9im/config-hoexb13k.yaml', 'sweep_id': 'g8kfz9im'}
+2023-03-14 23:24:04,905 INFO    Thread-9  :55300 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'sweep_code.py', 'program': '/home/vikram/Desktop/Deep Learning/cs6910_assignment1/sweep_code.py'}
+2023-03-14 23:24:04,906 INFO    Thread-9  :55300 [wandb_init.py:_log_setup():492] Logging user logs to /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230314_232404-hoexb13k/logs/debug.log
+2023-03-14 23:24:04,906 INFO    Thread-9  :55300 [wandb_init.py:_log_setup():493] Logging internal logs to /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230314_232404-hoexb13k/logs/debug-internal.log
+2023-03-14 23:24:04,906 INFO    Thread-9  :55300 [wandb_init.py:init():532] calling init triggers
+2023-03-14 23:24:04,907 INFO    Thread-9  :55300 [wandb_init.py:init():538] wandb.init called with sweep_config: {'activation_function': 'tanh', 'batch_size': 16, 'beta': 0.95, 'beta1': 0.9, 'beta2': 0.999, 'dataset': 'fashion_mnist', 'epochs': 10, 'epsilon': 1e-08, 'hidden_size': 64, 'learning_rate': 0.0016, 'loss': 'cross_entropy', 'momentum': 0.9, 'num_hlayers': 5, 'optimizer': 'momentum', 'weight_decay': 0.5, 'weight_init': 'xavier'}
+config: {}
+2023-03-14 23:24:04,907 INFO    Thread-9  :55300 [wandb_init.py:init():588] starting backend
+2023-03-14 23:24:04,907 INFO    Thread-9  :55300 [wandb_init.py:init():592] setting up manager
+2023-03-14 23:24:04,921 INFO    Thread-9  :55300 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-03-14 23:24:04,930 INFO    Thread-9  :55300 [wandb_init.py:init():599] backend started and connected
+2023-03-14 23:24:04,938 INFO    Thread-9  :55300 [wandb_run.py:_config_callback():1250] config_cb None None {'activation_function': 'tanh', 'batch_size': 16, 'beta': 0.95, 'beta1': 0.9, 'beta2': 0.999, 'dataset': 'fashion_mnist', 'epochs': 10, 'epsilon': 1e-08, 'hidden_size': 64, 'learning_rate': 0.0016, 'loss': 'cross_entropy', 'momentum': 0.9, 'num_hlayers': 5, 'optimizer': 'momentum', 'weight_decay': 0.5, 'weight_init': 'xavier'}
+2023-03-14 23:24:04,942 INFO    Thread-9  :55300 [wandb_init.py:init():687] updated telemetry
+2023-03-14 23:24:05,173 INFO    Thread-9  :55300 [wandb_init.py:init():727] communicating run to backend with 60.0 second timeout
+2023-03-14 23:24:06,810 INFO    Thread-9  :55300 [wandb_run.py:_on_init():2134] communicating current version
+2023-03-14 23:24:07,278 INFO    Thread-9  :55300 [wandb_run.py:_on_init():2143] got version response upgrade_message: "wandb version 0.13.11 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-03-14 23:24:07,278 INFO    Thread-9  :55300 [wandb_init.py:init():775] starting run threads in backend
+2023-03-14 23:24:37,310 INFO    Thread-9  :55300 [wandb_run.py:_console_start():2114] atexit reg
+2023-03-14 23:24:37,311 INFO    Thread-9  :55300 [wandb_run.py:_redirect():1969] redirect: SettingsConsole.WRAP_RAW
+2023-03-14 23:24:37,311 INFO    Thread-9  :55300 [wandb_run.py:_redirect():2034] Wrapping output streams.
+2023-03-14 23:24:37,312 INFO    Thread-9  :55300 [wandb_run.py:_redirect():2059] Redirects installed.
+2023-03-14 23:24:37,314 INFO    Thread-9  :55300 [wandb_init.py:init():817] run started, returning control to user process
+2023-03-14 23:35:08,044 INFO    Thread-9  :55300 [wandb_run.py:_finish():1854] finishing run cs19b021/cs6910-assignment1/hoexb13k
+2023-03-14 23:35:08,068 INFO    Thread-9  :55300 [wandb_run.py:_atexit_cleanup():2083] got exitcode: 0
+2023-03-14 23:35:08,068 INFO    Thread-9  :55300 [wandb_run.py:_restore():2066] restore
+2023-03-14 23:35:08,068 INFO    Thread-9  :55300 [wandb_run.py:_restore():2072] restore done
+2023-03-14 23:35:17,644 INFO    Thread-9  :55300 [wandb_run.py:_footer_history_summary_info():3442] rendering history
+2023-03-14 23:35:17,645 INFO    Thread-9  :55300 [wandb_run.py:_footer_history_summary_info():3474] rendering summary
+2023-03-14 23:35:17,655 INFO    Thread-9  :55300 [wandb_run.py:_footer_sync_info():3398] logging synced files

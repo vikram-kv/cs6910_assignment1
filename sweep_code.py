@@ -46,7 +46,7 @@ if __name__ == '__main__':
                         'name' : 'primary-sweep',
                         'metric' : {
                                 'goal' : 'minimize',
-                                'name' : 'val_acc'
+                                'name' : 'validation_acc'
                             }, 
                             'parameters': {
                                 'epochs' :  {'values' : [5, 10, 15], 'probabilities' : [0.3, 0.5, 0.2]},
@@ -71,28 +71,29 @@ if __name__ == '__main__':
                 'name' : 'secondary-sweep',
                 'metric' : {
                         'goal' : 'minimize',
-                        'name' : 'val_acc'
+                        'name' : 'validation_acc'
                     }, 
                     'parameters': {
-                        'epochs' :  {'values' : [10,15,20], 'probabilities' : [0.3, 0.5, 0.2]},
-                        'num_hlayers' : {'values' : [3, 4, 5], 'probabilities' : [0.25, 0.35, 0.4]},
-                        'hidden_size' : {'values' : [32, 64, 128], 'probabilities' : [0.3, 0.3, 0.4]},
-                        'weight_decay' : {'values' : [0.0, 0.05, 0.1, 0.5]},
-                        'learning_rate' : {'values' : [1e-4, 4e-4, 8e-4, 16e-4]},
-                        'batch_size' : {'values' : [16, 32, 64, 128]},
+                        'epochs' :  {'values' : [10,15,18]},
+                        'num_hlayers' : {'value' : 5},
+                        'hidden_size' : {'values' : [64, 128]},
+                        'weight_decay' : {'values' : [0.0, 0.05, 0.1, 0.25, 0.5]},
+                        'learning_rate' : {'values' : [1e-4, 4e-4, 8e-4, 16e-4, 32e-4]},
+                        'batch_size' : {'values' : 128},
                         'loss' : {'value' : 'cross_entropy'},
-                        'optimizer' : {'values' : ['sgd', 'momentum', 'nag', 'rmsprop', 'adam', 'nadam']},
+                        'optimizer' : {'values' : ['sgd', 'nag', 'rmsprop', 'adam']},
                         'weight_init' : {'values' : ['he', 'xavier'], 'probabilities' : [0.35, 0.65]},
-                        'activation_function' : {'values' : ['leakyrelu', 'tanh', 'elu'], 'probabilities' : [0.4, 0.2, 0.4]},
+                        'activation_function' : {'values' : ['leakyrelu', 'elu', 'swish'], 'probabilities' : [0.4, 0.2, 0.4]},
                         'momentum' : {'value' : 0.9},
                         'beta' : {'value' : 0.95},
                         'beta1' : {'value' : 0.9},
                         'beta2' : {'value' : 0.999},
                         'epsilon' : {'value' : 1e-8},
                         'dataset' : {'value' : args.dataset},
-                    }
+                    },
+                    'run_cap' : 300
                 }
-        sweep_id = wandb.sweep(entity='cs19b021', project='cs6910-assignment1',sweep=primary_sweep_config)
+        sweep_id = wandb.sweep(entity='cs19b021', project='cs6910-assignment1',sweep=sec_sweep_config)
         print(sweep_id)
     else:
         wandb.agent(sweep_id=args.sid, entity='cs19b021', project='cs6910-assignment1', function=agent_code)
