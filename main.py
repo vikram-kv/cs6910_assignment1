@@ -31,7 +31,7 @@ def gen_parser():
     parser.add_argument('-w_i', '--weight_init', dest='weight_init', default='random', choices=['random', 'xavier', 'he'], help='Weight initialization method to be used')
     parser.add_argument('-nhl', '--num_layers', dest='num_hlayers', default=4, type=int, help='Number of hidden layers used in feedforward neural network')
     parser.add_argument('-sz', '--hidden_size', dest='hidden_size', default=128, type=int, help='Number of hidden neurons in a feedforward layer')
-    parser.add_argument('-a', '--activation', dest='activation_function', default='relu', choices=['identity', 'sigmoid', 'tanh', 'relu', 'leakyrelu', 'elu'], help='Activation function to be used')
+    parser.add_argument('-a', '--activation', dest='activation_function', default='swish', choices=['identity', 'sigmoid', 'tanh', 'relu', 'leakyrelu', 'elu', 'swish'], help='Activation function to be used')
     parser.add_argument('-uw', '--log_wandb', dest='log_wandb', type=int, default=0, help='non-zero for wandb logging')
     parser.add_argument('-rn', '--run_name', dest='run_name', default=None, help='non-zero for wandb sweeping and logging')
     return parser

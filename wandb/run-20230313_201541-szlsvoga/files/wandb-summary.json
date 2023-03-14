@@ -1,1 +1,0 @@
-{"epoch": 10, "train_loss": 10036.656730857165, "train_acc": 24435.5, "validation_loss": 0.8871666666666667, "validation_acc": 0.470377570303682, "_timestamp": 1678719339.976819, "_runtime": 598.7481830120087, "_step": 9, "_wandb": {"runtime": 597}}

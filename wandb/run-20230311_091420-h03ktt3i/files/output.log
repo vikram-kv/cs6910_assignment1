@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/home/vikram/Desktop/Deep Learning/cs6910_assignment1/explore_dataset.py", line 33, in <module>
-    for idx in len(5):
-TypeError: object of type 'int' has no len()

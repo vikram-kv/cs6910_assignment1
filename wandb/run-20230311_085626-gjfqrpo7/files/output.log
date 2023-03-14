@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/home/vikram/Desktop/Deep Learning/cs6910_assignment1/explore_dataset.py", line 34, in <module>
-    test_table.add_data(data)
-  File "/home/vikram/miniconda3/envs/dlenv/lib/python3.9/site-packages/wandb/data_types.py", line 455, in add_data
-    raise ValueError(
-ValueError: This table expects 2 columns: ['class name', 'image'], found 1

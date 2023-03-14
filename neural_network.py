@@ -76,7 +76,7 @@ class NeuralNetwork:
         for idx in range(1, self.hlayercount + 1):
             next_act_values = ((weights[idx] @ input).T + biases[idx]).T
             next_out_values = self.hidden_actfn[idx][0](next_act_values)
-            next_out_derivs = self.hidden_actfn[idx][1](next_out_values)
+            next_out_derivs = self.hidden_actfn[idx][1](next_out_values, next_act_values)
             outvalues.append(next_out_values)
             outderivs.append(next_out_derivs)
             input = next_out_values
