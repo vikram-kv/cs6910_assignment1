@@ -1,5 +1,0 @@
-Test Performance
-[4 1 1 4 4 1 4 1 4 9]
-[9 2 1 1 6 1 4 6 5 7]
-['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
-test loss = 3.2257214047148963; test accuracy = 0.3
