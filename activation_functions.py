@@ -1,6 +1,9 @@
+# code file with the definitions of all activation functions and their derivatives.
+# currently, has 6 activation functions (excluding linear)
+# new activation functions may be added following the sigmoid template below.
+# any new activation function must have an entry in get_act_func_and_deriv() or an
+# exception is raised.
 import numpy as np
-
-# new activation functions to be added following the template seen here.
 
 # sigmoid activation function and derivative
 def sigmoid_value(x):
@@ -45,7 +48,7 @@ def elu_value(x):
 def elu_deriv(fx, x):
     return np.where(fx>0, 1.0, fx + 1.0)
 
-# the most recent swish-1(beta = 1) activation function and derivative
+# the recent swish-1(beta = 1) activation function and derivative
 def swish_value(x):
     sig_x = 1.0/(1.0 + np.exp(-x))
     return x * sig_x
@@ -54,7 +57,8 @@ def swish_deriv(fx, x):
     sig_x = 1.0/(1.0 + np.exp(-x))
     return fx + sig_x * (1- fx)
 
-# function to return the function operator and derivative operator for a activation function by name
+# function to return the function operator and derivative operator for a activation function 
+# using its (str) name
 def get_act_func_and_deriv(name : str):
     if (name == 'linear'):
         return linear_value, linear_deriv
