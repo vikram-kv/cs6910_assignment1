@@ -1,0 +1,700 @@
+2023-03-16 21:32:07,972 INFO    StreamThr :63057 [internal.py:wandb_internal():87] W&B internal server running at pid: 63057, started at: 2023-03-16 21:32:07.968139
+2023-03-16 21:32:07,974 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status
+2023-03-16 21:32:08,108 INFO    WriterThread:63057 [datastore.py:open_for_write():85] open: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/run-zjsr6pu2.wandb
+2023-03-16 21:32:08,235 DEBUG   SenderThread:63057 [sender.py:send():336] send: header
+2023-03-16 21:32:10,631 DEBUG   SenderThread:63057 [sender.py:send():336] send: run
+2023-03-16 21:32:13,134 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: check_version
+2023-03-16 21:32:13,238 INFO    SenderThread:63057 [dir_watcher.py:__init__():216] watching files in: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files
+2023-03-16 21:32:13,238 INFO    SenderThread:63057 [sender.py:_start_run_threads():1067] run started: zjsr6pu2 with start time 1678982527.885059
+2023-03-16 21:32:13,238 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: summary_record
+2023-03-16 21:32:13,238 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:32:13,239 INFO    SenderThread:63057 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2023-03-16 21:32:13,240 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: check_version
+2023-03-16 21:32:13,413 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: run_start
+2023-03-16 21:32:14,242 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/wandb-summary.json
+2023-03-16 21:32:14,675 ERROR   HandlerThread:63057 [gpu.py:is_available():351] Error initializing NVML: Driver Not Loaded
+2023-03-16 21:32:14,675 DEBUG   HandlerThread:63057 [system_info.py:__init__():31] System info init
+2023-03-16 21:32:14,675 DEBUG   HandlerThread:63057 [system_info.py:__init__():46] System info init done
+2023-03-16 21:32:14,676 INFO    HandlerThread:63057 [system_monitor.py:start():151] Starting system monitor
+2023-03-16 21:32:14,676 INFO    SystemMonitor:63057 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2023-03-16 21:32:14,676 INFO    HandlerThread:63057 [system_monitor.py:probe():172] Collecting system info
+2023-03-16 21:32:14,677 INFO    SystemMonitor:63057 [interfaces.py:start():168] Started cpu
+2023-03-16 21:32:14,677 INFO    SystemMonitor:63057 [interfaces.py:start():168] Started disk
+2023-03-16 21:32:14,677 INFO    SystemMonitor:63057 [interfaces.py:start():168] Started memory
+2023-03-16 21:32:14,678 INFO    SystemMonitor:63057 [interfaces.py:start():168] Started network
+2023-03-16 21:32:14,720 DEBUG   HandlerThread:63057 [system_info.py:probe():195] Probing system
+2023-03-16 21:32:14,728 DEBUG   HandlerThread:63057 [system_info.py:_probe_git():180] Probing git
+2023-03-16 21:32:14,766 DEBUG   HandlerThread:63057 [system_info.py:_probe_git():188] Probing git done
+2023-03-16 21:32:14,766 DEBUG   HandlerThread:63057 [system_info.py:probe():241] Probing system done
+2023-03-16 21:32:14,766 DEBUG   HandlerThread:63057 [system_monitor.py:probe():181] {'os': 'Linux-5.15.0-67-generic-x86_64-with-glibc2.31', 'python': '3.9.16', 'heartbeatAt': '2023-03-16T16:02:14.720245', 'startedAt': '2023-03-16T16:02:02.971066', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/home/vikram/Desktop/Deep Learning/cs6910_assignment1/log_conf_matrix.py', 'codePath': 'log_conf_matrix.py', 'git': {'remote': 'https://github.com/vikram-kv/cs6910_assignment1', 'commit': '0f7937c85bb0bbcb5d5afe4b1969990e6a2fd684'}, 'email': 'cs19b021@smail.iitm.ac.in', 'root': '/home/vikram/Desktop/Deep Learning/cs6910_assignment1', 'host': 'VikramUbuntu', 'username': 'vikram', 'executable': '/home/vikram/miniconda3/envs/dlenv/bin/python3', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 2.8, 'min': 800.0, 'max': 4100.0}, 'cpu_freq_per_core': [{'current': 2.4, 'min': 800.0, 'max': 4100.0}, {'current': 3.999, 'min': 800.0, 'max': 4100.0}, {'current': 2.4, 'min': 800.0, 'max': 4100.0}, {'current': 2.4, 'min': 800.0, 'max': 4100.0}, {'current': 2.4, 'min': 800.0, 'max': 4100.0}, {'current': 2.4, 'min': 800.0, 'max': 4100.0}, {'current': 2.4, 'min': 800.0, 'max': 4100.0}, {'current': 2.4, 'min': 800.0, 'max': 4100.0}], 'disk': {'total': 88.6217041015625, 'used': 31.047550201416016}, 'memory': {'total': 7.607265472412109}}
+2023-03-16 21:32:14,766 INFO    HandlerThread:63057 [system_monitor.py:probe():182] Finished collecting system info
+2023-03-16 21:32:14,766 INFO    HandlerThread:63057 [system_monitor.py:probe():185] Publishing system info
+2023-03-16 21:32:14,767 DEBUG   HandlerThread:63057 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-03-16 21:32:14,767 DEBUG   HandlerThread:63057 [system_info.py:_save_pip():67] Saving pip packages done
+2023-03-16 21:32:14,767 DEBUG   HandlerThread:63057 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-03-16 21:32:15,241 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/conda-environment.yaml
+2023-03-16 21:32:15,242 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/requirements.txt
+2023-03-16 21:32:41,314 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/conda-environment.yaml
+2023-03-16 21:32:41,748 DEBUG   HandlerThread:63057 [system_info.py:_save_conda():86] Saving conda packages done
+2023-03-16 21:32:42,257 INFO    HandlerThread:63057 [system_monitor.py:probe():187] Finished publishing system info
+2023-03-16 21:32:42,314 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/wandb-metadata.json
+2023-03-16 21:32:45,481 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:32:45,481 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:32:45,482 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:32:45,482 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:32:45,482 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:32:45,482 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:32:45,482 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:32:45,482 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:32:45,482 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:32:45,482 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:32:45,483 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:32:45,483 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: stop_status
+2023-03-16 21:32:45,483 DEBUG   SenderThread:63057 [sender.py:send():336] send: files
+2023-03-16 21:32:45,483 INFO    SenderThread:63057 [sender.py:_save_file():1321] saving file wandb-metadata.json with policy now
+2023-03-16 21:32:45,484 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: stop_status
+2023-03-16 21:32:46,147 DEBUG   SenderThread:63057 [sender.py:send():336] send: telemetry
+2023-03-16 21:32:46,148 DEBUG   SenderThread:63057 [sender.py:send():336] send: telemetry
+2023-03-16 21:32:46,148 DEBUG   SenderThread:63057 [sender.py:send():336] send: run
+2023-03-16 21:32:46,633 INFO    SenderThread:63057 [sender.py:send_run():944] updated run: zjsr6pu2
+2023-03-16 21:32:47,043 INFO    wandb-upload_0:63057 [upload_job.py:push():138] Uploaded file /tmp/tmpi12_kl15wandb/229gsqy6-wandb-metadata.json
+2023-03-16 21:32:47,148 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/config.yaml
+2023-03-16 21:32:48,634 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:32:50,150 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:32:52,150 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:32:53,806 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:32:54,151 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:32:56,155 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:32:58,156 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:32:58,518 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:32:59,155 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:33:00,157 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:02,159 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:03,535 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:33:04,160 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:04,421 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:33:06,162 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:08,164 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:08,537 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:33:09,914 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:33:10,164 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:11,165 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/config.yaml
+2023-03-16 21:33:12,165 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:13,538 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:33:14,166 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:14,679 DEBUG   SystemMonitor:63057 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2023-03-16 21:33:14,680 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:33:16,023 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:33:16,168 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:18,172 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:18,553 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:33:20,174 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:21,273 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:33:22,176 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:23,559 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:33:24,177 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:26,178 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:26,510 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:33:28,180 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:28,555 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:33:30,181 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:31,757 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:33:32,183 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:33,557 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:33:34,183 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:36,188 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:36,789 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:33:38,191 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:38,559 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:33:40,193 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:42,168 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:33:42,195 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:43,570 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:33:44,197 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:44,682 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:33:46,198 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:47,346 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:33:48,200 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:48,571 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:33:50,201 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:52,203 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:52,712 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:33:53,574 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:33:54,205 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:56,207 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:58,078 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:33:58,208 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:33:58,575 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:34:00,209 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:02,211 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:03,496 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:34:03,577 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:34:04,213 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:06,215 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:08,217 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:08,578 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:34:08,724 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:34:10,218 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:12,220 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:13,579 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:34:14,044 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:34:14,221 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:14,684 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:34:16,222 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:18,223 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:18,581 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:34:19,320 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:34:20,224 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:22,226 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:23,582 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:34:24,226 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:24,372 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:34:26,227 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:28,228 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:28,583 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:34:29,440 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:34:30,229 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:32,231 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:33,584 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:34:34,231 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:34,464 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:34:36,233 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:38,234 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:38,586 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:34:39,531 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:34:40,235 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:42,238 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:43,587 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:34:44,241 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:44,654 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:34:44,684 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:34:46,242 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:48,243 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:48,588 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:34:49,872 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:34:50,245 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:52,247 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:53,590 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:34:54,248 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:55,028 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:34:56,250 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:58,251 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:34:58,592 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:35:00,145 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:35:00,252 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:02,254 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:03,593 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:35:04,255 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:05,318 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:35:06,256 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:08,257 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:08,599 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:35:10,258 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:10,555 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:35:12,260 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:13,595 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:35:14,261 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:14,685 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:35:15,630 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:35:16,262 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:18,279 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:18,596 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:35:20,269 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:20,747 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:35:22,270 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:23,597 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:35:24,271 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:25,883 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:35:26,272 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:28,273 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:28,602 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:35:29,274 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:30,908 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:35:33,605 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:35:35,277 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:36,060 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:35:36,278 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:37,278 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:38,279 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:38,605 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:35:40,280 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:41,373 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:35:42,280 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:43,608 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:35:44,281 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:44,688 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:35:46,283 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:46,710 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:35:48,284 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:48,612 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:35:50,287 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:51,732 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:35:52,289 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:53,619 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:35:54,290 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:56,291 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:57,075 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:35:58,293 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:35:58,619 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:36:00,294 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:02,221 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:36:02,296 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:03,621 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:36:04,296 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:06,297 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:07,443 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:36:08,298 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:08,622 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:36:10,300 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:12,301 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:12,529 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:36:13,624 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:36:14,303 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:14,689 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:36:16,303 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:18,031 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:36:18,307 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:18,625 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:36:20,309 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:22,312 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:23,337 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:36:23,628 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:36:24,314 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:26,314 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:28,315 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:28,338 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:36:28,629 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:36:31,317 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:33,318 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:33,598 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:36:33,630 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:36:35,320 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:37,321 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:38,632 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:36:39,155 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:36:39,322 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:41,324 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:43,325 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:43,634 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:36:44,525 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:36:44,692 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:36:45,328 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:47,329 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:48,635 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:36:49,330 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:49,646 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:36:51,333 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:53,338 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:53,636 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:36:55,041 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:36:55,340 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:57,341 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:36:58,637 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:36:59,341 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:00,246 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:37:01,343 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:03,344 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:03,640 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:37:05,345 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:05,630 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:37:07,346 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:08,641 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:37:09,347 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:10,848 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:37:11,350 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:13,351 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:13,643 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:37:14,693 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:37:15,353 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:16,186 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:37:17,356 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:18,644 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:37:19,357 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:21,358 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:21,365 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:37:23,359 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:23,646 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:37:25,362 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:26,471 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:37:27,364 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:28,647 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:37:29,365 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:31,372 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:31,576 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:37:33,375 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:33,649 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:37:35,376 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:36,755 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:37:37,378 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:38,654 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:37:39,380 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:41,382 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:42,162 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:37:43,384 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:43,657 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:37:44,695 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:37:45,387 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:47,389 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:47,646 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:37:48,660 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:37:49,391 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:51,392 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:53,024 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:37:53,397 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:53,661 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:37:55,398 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:57,401 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:37:58,457 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:37:58,664 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:37:59,402 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:01,405 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:03,412 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:03,666 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:38:03,747 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:38:05,414 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:07,415 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:08,689 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:38:09,012 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:38:09,418 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:11,419 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:13,421 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:13,691 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:38:14,665 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:38:14,698 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:38:15,425 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:17,426 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:18,695 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:38:19,428 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:20,064 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:38:21,432 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:23,433 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:23,698 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:38:25,434 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:25,995 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:38:28,699 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:38:30,996 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:38:33,700 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:38:35,998 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:38:38,702 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:38:39,450 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:41,452 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:41,544 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:38:43,454 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:43,705 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:38:44,700 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:38:45,456 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:46,776 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:38:47,458 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:48,706 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:38:49,460 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:51,461 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:52,274 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:38:53,463 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:53,709 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:38:55,466 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:57,466 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:38:57,728 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:38:58,712 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:38:59,468 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:01,471 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:03,295 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:39:03,473 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:03,713 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:39:05,478 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:07,490 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:08,694 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:39:08,720 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:39:09,491 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:11,492 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:13,497 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:13,705 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:39:13,722 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:39:14,700 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:39:15,497 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:17,500 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:18,723 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:39:19,084 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:39:19,500 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:21,503 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:23,504 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:23,727 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:39:24,239 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:39:25,506 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:27,508 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:28,730 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:39:29,509 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:29,607 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:39:31,510 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:33,510 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:33,736 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:39:34,961 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:39:35,512 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:37,514 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:38,737 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:39:39,515 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:40,174 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:39:41,516 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:43,517 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:43,749 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:39:44,702 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:39:45,265 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:39:45,519 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:47,520 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:48,749 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:39:49,522 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:50,463 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:39:51,523 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:53,524 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:53,752 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:39:55,525 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:56,134 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:39:57,527 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:39:58,756 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:39:59,529 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:01,531 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:01,619 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:40:03,534 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:03,758 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:40:05,538 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:06,676 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:40:07,539 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:08,759 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:40:09,540 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:11,542 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:11,724 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:40:13,543 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:13,760 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:40:14,703 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:40:15,545 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:16,999 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:40:17,545 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:18,760 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:40:19,547 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:21,549 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:22,232 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:40:23,550 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:23,763 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:40:25,551 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:27,378 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:40:27,552 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:28,765 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:40:29,554 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:31,557 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:32,507 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:40:33,558 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:33,765 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:40:35,558 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:37,560 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:37,724 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:40:38,767 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:40:39,561 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:41,562 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:42,791 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:40:43,563 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:43,768 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:40:44,705 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:40:45,564 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:47,565 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:47,847 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:40:48,770 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:40:49,566 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:51,569 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:53,288 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:40:53,571 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:53,772 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:40:55,572 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:57,573 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:40:58,494 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:40:58,773 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:40:59,575 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:01,577 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:03,578 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:03,697 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:41:03,774 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:41:05,581 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:07,581 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:08,778 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:41:08,868 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:41:09,583 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:11,584 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:13,586 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:13,778 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:41:14,216 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:41:14,705 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:41:15,588 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:17,589 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:18,780 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:41:19,310 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:41:19,590 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:21,592 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:23,593 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:23,780 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:41:24,516 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:41:25,596 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:27,596 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:28,782 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:41:29,597 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:29,630 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:41:31,598 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:33,603 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:33,782 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:41:35,420 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:41:35,604 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:38,784 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:41:40,423 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:41:43,612 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:43,761 DEBUG   SenderThread:63057 [sender.py:send():336] send: config
+2023-03-16 21:41:43,815 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:41:44,588 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: log_artifact
+2023-03-16 21:41:44,590 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: log_artifact
+2023-03-16 21:41:44,664 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/media
+2023-03-16 21:41:44,665 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/media/table
+2023-03-16 21:41:45,593 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: partial_history
+2023-03-16 21:41:45,665 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_created():275] file/dir created: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/media/table/confusion matrix_table_0_74fe2cb4d7b969956f70.table.json
+2023-03-16 21:41:46,652 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: poll_exit
+2023-03-16 21:41:47,711 INFO    wandb-upload_0:63057 [upload_job.py:push():138] Uploaded file /tmp/tmpi12_kl15wandb/t0nfzj26-media/table/confusion matrix_table_0_74fe2cb4d7b969956f70.table.json
+2023-03-16 21:41:51,654 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:41:52,288 INFO    wandb-upload_1:63057 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmp1sk9490y
+2023-03-16 21:41:53,785 INFO    SenderThread:63057 [sender.py:send_request_log_artifact():1381] logged artifact run-zjsr6pu2-confusionmatrix_table - {'id': 'QXJ0aWZhY3Q6Mzk4OTYwNTE3', 'digest': '72951a9dbf6652bf52ded419058c462c', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjU3MzI5ODc4', 'latestArtifact': None}, 'version': 'latest'}
+2023-03-16 21:41:53,785 DEBUG   SenderThread:63057 [sender.py:send():336] send: files
+2023-03-16 21:41:53,786 INFO    SenderThread:63057 [sender.py:_save_file():1321] saving file media/table/confusion matrix_table_0_74fe2cb4d7b969956f70.table.json with policy now
+2023-03-16 21:41:53,786 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:41:53,789 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:41:53,790 DEBUG   SenderThread:63057 [sender.py:send():336] send: history
+2023-03-16 21:41:53,790 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: summary_record
+2023-03-16 21:41:53,791 INFO    SenderThread:63057 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2023-03-16 21:41:53,792 DEBUG   SenderThread:63057 [sender.py:send():336] send: telemetry
+2023-03-16 21:41:53,792 DEBUG   SenderThread:63057 [sender.py:send():336] send: exit
+2023-03-16 21:41:53,792 INFO    SenderThread:63057 [sender.py:send_exit():559] handling exit code: 0
+2023-03-16 21:41:53,793 INFO    SenderThread:63057 [sender.py:send_exit():561] handling runtime: 572
+2023-03-16 21:41:53,951 INFO    SenderThread:63057 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2023-03-16 21:41:53,953 INFO    SenderThread:63057 [sender.py:send_exit():567] send defer
+2023-03-16 21:41:53,953 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: poll_exit
+2023-03-16 21:41:53,953 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: defer
+2023-03-16 21:41:53,956 INFO    HandlerThread:63057 [handler.py:handle_request_defer():170] handle defer: 0
+2023-03-16 21:41:53,958 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: defer
+2023-03-16 21:41:53,958 INFO    SenderThread:63057 [sender.py:send_request_defer():583] handle sender defer: 0
+2023-03-16 21:41:53,958 INFO    SenderThread:63057 [sender.py:transition_state():587] send defer: 1
+2023-03-16 21:41:53,959 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: defer
+2023-03-16 21:41:53,959 INFO    HandlerThread:63057 [handler.py:handle_request_defer():170] handle defer: 1
+2023-03-16 21:41:53,960 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: defer
+2023-03-16 21:41:53,960 INFO    SenderThread:63057 [sender.py:send_request_defer():583] handle sender defer: 1
+2023-03-16 21:41:53,960 INFO    SenderThread:63057 [sender.py:transition_state():587] send defer: 2
+2023-03-16 21:41:53,961 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: defer
+2023-03-16 21:41:53,961 INFO    HandlerThread:63057 [handler.py:handle_request_defer():170] handle defer: 2
+2023-03-16 21:41:53,961 INFO    HandlerThread:63057 [system_monitor.py:finish():161] Stopping system monitor
+2023-03-16 21:41:53,962 DEBUG   SystemMonitor:63057 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2023-03-16 21:41:53,962 DEBUG   SystemMonitor:63057 [system_monitor.py:_start():141] Publishing last batch of metrics
+2023-03-16 21:41:53,964 INFO    HandlerThread:63057 [interfaces.py:finish():175] Joined cpu
+2023-03-16 21:41:53,965 INFO    HandlerThread:63057 [interfaces.py:finish():175] Joined disk
+2023-03-16 21:41:53,966 INFO    HandlerThread:63057 [interfaces.py:finish():175] Joined memory
+2023-03-16 21:41:53,966 INFO    HandlerThread:63057 [interfaces.py:finish():175] Joined network
+2023-03-16 21:41:53,967 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: defer
+2023-03-16 21:41:53,967 INFO    SenderThread:63057 [sender.py:send_request_defer():583] handle sender defer: 2
+2023-03-16 21:41:53,968 INFO    SenderThread:63057 [sender.py:transition_state():587] send defer: 3
+2023-03-16 21:41:53,968 DEBUG   SenderThread:63057 [sender.py:send():336] send: stats
+2023-03-16 21:41:53,973 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: defer
+2023-03-16 21:41:53,973 INFO    HandlerThread:63057 [handler.py:handle_request_defer():170] handle defer: 3
+2023-03-16 21:41:53,974 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: defer
+2023-03-16 21:41:53,974 INFO    SenderThread:63057 [sender.py:send_request_defer():583] handle sender defer: 3
+2023-03-16 21:41:53,974 INFO    SenderThread:63057 [sender.py:transition_state():587] send defer: 4
+2023-03-16 21:41:53,974 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: defer
+2023-03-16 21:41:53,974 INFO    HandlerThread:63057 [handler.py:handle_request_defer():170] handle defer: 4
+2023-03-16 21:41:53,975 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: defer
+2023-03-16 21:41:53,975 INFO    SenderThread:63057 [sender.py:send_request_defer():583] handle sender defer: 4
+2023-03-16 21:41:53,975 INFO    SenderThread:63057 [sender.py:transition_state():587] send defer: 5
+2023-03-16 21:41:53,975 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: defer
+2023-03-16 21:41:53,976 INFO    HandlerThread:63057 [handler.py:handle_request_defer():170] handle defer: 5
+2023-03-16 21:41:53,976 DEBUG   SenderThread:63057 [sender.py:send():336] send: summary
+2023-03-16 21:41:54,108 INFO    SenderThread:63057 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2023-03-16 21:41:54,109 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: defer
+2023-03-16 21:41:54,109 INFO    SenderThread:63057 [sender.py:send_request_defer():583] handle sender defer: 5
+2023-03-16 21:41:54,109 INFO    SenderThread:63057 [sender.py:transition_state():587] send defer: 6
+2023-03-16 21:41:54,110 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: defer
+2023-03-16 21:41:54,110 INFO    HandlerThread:63057 [handler.py:handle_request_defer():170] handle defer: 6
+2023-03-16 21:41:54,110 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: defer
+2023-03-16 21:41:54,110 INFO    SenderThread:63057 [sender.py:send_request_defer():583] handle sender defer: 6
+2023-03-16 21:41:54,118 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:41:54,521 INFO    SenderThread:63057 [sender.py:transition_state():587] send defer: 7
+2023-03-16 21:41:54,521 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: defer
+2023-03-16 21:41:54,521 INFO    HandlerThread:63057 [handler.py:handle_request_defer():170] handle defer: 7
+2023-03-16 21:41:54,521 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: defer
+2023-03-16 21:41:54,521 INFO    SenderThread:63057 [sender.py:send_request_defer():583] handle sender defer: 7
+2023-03-16 21:41:54,661 INFO    wandb-upload_0:63057 [upload_job.py:push():138] Uploaded file /tmp/tmpi12_kl15wandb/xpbzo97m-media/table/confusion matrix_table_0_74fe2cb4d7b969956f70.table.json
+2023-03-16 21:41:54,670 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/config.yaml
+2023-03-16 21:41:54,670 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/wandb-summary.json
+2023-03-16 21:41:55,673 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:56,657 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:41:57,367 INFO    SenderThread:63057 [sender.py:transition_state():587] send defer: 8
+2023-03-16 21:41:57,368 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: defer
+2023-03-16 21:41:57,368 INFO    HandlerThread:63057 [handler.py:handle_request_defer():170] handle defer: 8
+2023-03-16 21:41:57,369 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: defer
+2023-03-16 21:41:57,369 INFO    SenderThread:63057 [sender.py:send_request_defer():583] handle sender defer: 8
+2023-03-16 21:41:57,604 INFO    SenderThread:63057 [sender.py:transition_state():587] send defer: 9
+2023-03-16 21:41:57,604 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: defer
+2023-03-16 21:41:57,604 INFO    HandlerThread:63057 [handler.py:handle_request_defer():170] handle defer: 9
+2023-03-16 21:41:57,605 DEBUG   SenderThread:63057 [sender.py:send():336] send: artifact
+2023-03-16 21:41:57,674 INFO    Thread-13 :63057 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:41:59,637 INFO    wandb-upload_1:63057 [upload_job.py:push():93] Skipped uploading /home/vikram/.local/share/wandb/artifacts/staging/tmptpfb39_7
+2023-03-16 21:42:01,659 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:42:02,278 INFO    wandb-upload_0:63057 [upload_job.py:push():96] Uploaded file /home/vikram/.local/share/wandb/artifacts/staging/tmpmqv3l95x
+2023-03-16 21:42:05,006 INFO    SenderThread:63057 [sender.py:send_artifact():1417] sent artifact job-https___github.com_vikram-kv_cs6910_assignment1_log_conf_matrix.py - {'id': 'QXJ0aWZhY3Q6Mzk4OTYwNjY2', 'digest': '982096be0c6e89d68c64403efb951470', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjU3MzE5MDM0', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6Mzk4OTQwMjIz', 'versionIndex': 0}}, 'version': 'latest'}
+2023-03-16 21:42:05,006 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: defer
+2023-03-16 21:42:05,006 INFO    SenderThread:63057 [sender.py:send_request_defer():583] handle sender defer: 9
+2023-03-16 21:42:05,006 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: status_report
+2023-03-16 21:42:05,006 INFO    SenderThread:63057 [dir_watcher.py:finish():362] shutting down directory watcher
+2023-03-16 21:42:05,677 INFO    SenderThread:63057 [dir_watcher.py:finish():392] scan: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files
+2023-03-16 21:42:05,677 INFO    SenderThread:63057 [dir_watcher.py:finish():406] scan save: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log output.log
+2023-03-16 21:42:05,678 INFO    SenderThread:63057 [dir_watcher.py:finish():406] scan save: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/config.yaml config.yaml
+2023-03-16 21:42:05,678 INFO    SenderThread:63057 [dir_watcher.py:finish():406] scan save: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/wandb-summary.json wandb-summary.json
+2023-03-16 21:42:05,678 INFO    SenderThread:63057 [dir_watcher.py:finish():406] scan save: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/requirements.txt requirements.txt
+2023-03-16 21:42:05,678 INFO    SenderThread:63057 [dir_watcher.py:finish():406] scan save: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/conda-environment.yaml conda-environment.yaml
+2023-03-16 21:42:05,678 INFO    SenderThread:63057 [dir_watcher.py:finish():406] scan save: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/wandb-metadata.json wandb-metadata.json
+2023-03-16 21:42:05,678 INFO    SenderThread:63057 [dir_watcher.py:finish():406] scan save: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/media/table/confusion matrix_table_0_74fe2cb4d7b969956f70.table.json media/table/confusion matrix_table_0_74fe2cb4d7b969956f70.table.json
+2023-03-16 21:42:05,678 INFO    SenderThread:63057 [sender.py:transition_state():587] send defer: 10
+2023-03-16 21:42:05,679 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: defer
+2023-03-16 21:42:05,679 INFO    HandlerThread:63057 [handler.py:handle_request_defer():170] handle defer: 10
+2023-03-16 21:42:05,693 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: defer
+2023-03-16 21:42:05,693 INFO    SenderThread:63057 [sender.py:send_request_defer():583] handle sender defer: 10
+2023-03-16 21:42:05,693 INFO    SenderThread:63057 [file_pusher.py:finish():162] shutting down file pusher
+2023-03-16 21:42:06,661 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: keepalive
+2023-03-16 21:42:06,675 INFO    wandb-upload_1:63057 [upload_job.py:push():138] Uploaded file /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/config.yaml
+2023-03-16 21:42:06,676 INFO    wandb-upload_3:63057 [upload_job.py:push():138] Uploaded file /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/requirements.txt
+2023-03-16 21:42:06,917 INFO    wandb-upload_4:63057 [upload_job.py:push():138] Uploaded file /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/conda-environment.yaml
+2023-03-16 21:42:06,963 INFO    wandb-upload_0:63057 [upload_job.py:push():138] Uploaded file /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/wandb-summary.json
+2023-03-16 21:42:07,041 INFO    wandb-upload_2:63057 [upload_job.py:push():138] Uploaded file /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/files/output.log
+2023-03-16 21:42:07,241 INFO    Thread-12 :63057 [sender.py:transition_state():587] send defer: 11
+2023-03-16 21:42:07,243 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: defer
+2023-03-16 21:42:07,243 INFO    HandlerThread:63057 [handler.py:handle_request_defer():170] handle defer: 11
+2023-03-16 21:42:07,244 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: defer
+2023-03-16 21:42:07,245 INFO    SenderThread:63057 [sender.py:send_request_defer():583] handle sender defer: 11
+2023-03-16 21:42:07,245 INFO    SenderThread:63057 [file_pusher.py:join():167] waiting for file pusher
+2023-03-16 21:42:07,245 INFO    SenderThread:63057 [sender.py:transition_state():587] send defer: 12
+2023-03-16 21:42:07,245 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: defer
+2023-03-16 21:42:07,245 INFO    HandlerThread:63057 [handler.py:handle_request_defer():170] handle defer: 12
+2023-03-16 21:42:07,245 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: defer
+2023-03-16 21:42:07,246 INFO    SenderThread:63057 [sender.py:send_request_defer():583] handle sender defer: 12
+2023-03-16 21:42:08,198 INFO    SenderThread:63057 [sender.py:transition_state():587] send defer: 13
+2023-03-16 21:42:08,198 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: defer
+2023-03-16 21:42:08,198 INFO    HandlerThread:63057 [handler.py:handle_request_defer():170] handle defer: 13
+2023-03-16 21:42:08,198 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: defer
+2023-03-16 21:42:08,198 INFO    SenderThread:63057 [sender.py:send_request_defer():583] handle sender defer: 13
+2023-03-16 21:42:08,202 INFO    SenderThread:63057 [sender.py:transition_state():587] send defer: 14
+2023-03-16 21:42:08,203 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: defer
+2023-03-16 21:42:08,203 INFO    HandlerThread:63057 [handler.py:handle_request_defer():170] handle defer: 14
+2023-03-16 21:42:08,204 DEBUG   SenderThread:63057 [sender.py:send():336] send: final
+2023-03-16 21:42:08,204 DEBUG   SenderThread:63057 [sender.py:send():336] send: footer
+2023-03-16 21:42:08,205 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: defer
+2023-03-16 21:42:08,205 INFO    SenderThread:63057 [sender.py:send_request_defer():583] handle sender defer: 14
+2023-03-16 21:42:08,207 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: poll_exit
+2023-03-16 21:42:08,208 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: server_info
+2023-03-16 21:42:08,208 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: get_summary
+2023-03-16 21:42:08,208 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: sampled_history
+2023-03-16 21:42:08,278 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: poll_exit
+2023-03-16 21:42:08,279 DEBUG   SenderThread:63057 [sender.py:send_request():363] send_request: server_info
+2023-03-16 21:42:08,617 DEBUG   HandlerThread:63057 [handler.py:handle_request():144] handle_request: shutdown
+2023-03-16 21:42:08,618 INFO    HandlerThread:63057 [handler.py:finish():841] shutting down handler
+2023-03-16 21:42:09,278 INFO    WriterThread:63057 [datastore.py:close():299] close: /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230316_213202-zjsr6pu2/run-zjsr6pu2.wandb
+2023-03-16 21:42:09,613 INFO    SenderThread:63057 [sender.py:finish():1493] shutting down sender
+2023-03-16 21:42:09,614 INFO    SenderThread:63057 [file_pusher.py:finish():162] shutting down file pusher
+2023-03-16 21:42:09,614 INFO    SenderThread:63057 [file_pusher.py:join():167] waiting for file pusher

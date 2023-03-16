@@ -1,0 +1,27 @@
+2023-03-17 01:51:21,492 INFO    Thread-8  :93665 [wandb_setup.py:_flush():68] Configure stats pid to 93665
+2023-03-17 01:51:21,493 INFO    Thread-8  :93665 [wandb_setup.py:_flush():68] Loading settings from /home/vikram/.config/wandb/settings
+2023-03-17 01:51:21,493 INFO    Thread-8  :93665 [wandb_setup.py:_flush():68] Loading settings from /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/settings
+2023-03-17 01:51:21,493 INFO    Thread-8  :93665 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True', 'entity': 'cs19b021', 'project': 'cs6910-assignment1', 'root_dir': '/home/vikram/Desktop/Deep Learning/cs6910_assignment1', 'run_id': 'fjzunabd', 'sweep_param_path': '/home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/sweep-falv2t33/config-fjzunabd.yaml', 'sweep_id': 'falv2t33'}
+2023-03-17 01:51:21,493 INFO    Thread-8  :93665 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'mse_vs_ce_loss.py', 'program': '/home/vikram/Desktop/Deep Learning/cs6910_assignment1/mse_vs_ce_loss.py'}
+2023-03-17 01:51:21,493 INFO    Thread-8  :93665 [wandb_init.py:_log_setup():492] Logging user logs to /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230317_015121-fjzunabd/logs/debug.log
+2023-03-17 01:51:21,493 INFO    Thread-8  :93665 [wandb_init.py:_log_setup():493] Logging internal logs to /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230317_015121-fjzunabd/logs/debug-internal.log
+2023-03-17 01:51:21,493 INFO    Thread-8  :93665 [wandb_init.py:init():532] calling init triggers
+2023-03-17 01:51:21,493 INFO    Thread-8  :93665 [wandb_init.py:init():538] wandb.init called with sweep_config: {'activation_function': 'relu', 'batch_size': 128, 'beta': 0.95, 'beta1': 0.9, 'beta2': 0.999, 'dataset': 'fashion_mnist', 'epochs': 8, 'epsilon': 1e-08, 'hidden_size': 64, 'learning_rate': 0.0005, 'loss': 'mean_squared_error', 'momentum': 0.9, 'num_hlayers': 4, 'optimizer': 'adam', 'weight_decay': 0.05, 'weight_init': 'xavier'}
+config: {}
+2023-03-17 01:51:21,493 INFO    Thread-8  :93665 [wandb_init.py:init():588] starting backend
+2023-03-17 01:51:21,493 INFO    Thread-8  :93665 [wandb_init.py:init():592] setting up manager
+2023-03-17 01:51:21,496 INFO    Thread-8  :93665 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-03-17 01:51:21,499 INFO    Thread-8  :93665 [wandb_init.py:init():599] backend started and connected
+2023-03-17 01:51:21,505 INFO    Thread-8  :93665 [wandb_run.py:_config_callback():1250] config_cb None None {'activation_function': 'relu', 'batch_size': 128, 'beta': 0.95, 'beta1': 0.9, 'beta2': 0.999, 'dataset': 'fashion_mnist', 'epochs': 8, 'epsilon': 1e-08, 'hidden_size': 64, 'learning_rate': 0.0005, 'loss': 'mean_squared_error', 'momentum': 0.9, 'num_hlayers': 4, 'optimizer': 'adam', 'weight_decay': 0.05, 'weight_init': 'xavier'}
+2023-03-17 01:51:21,508 INFO    Thread-8  :93665 [wandb_init.py:init():687] updated telemetry
+2023-03-17 01:51:21,526 INFO    Thread-8  :93665 [wandb_init.py:init():727] communicating run to backend with 60.0 second timeout
+2023-03-17 01:51:22,347 INFO    Thread-8  :93665 [wandb_run.py:_on_init():2134] communicating current version
+2023-03-17 01:51:22,417 INFO    Thread-8  :93665 [wandb_run.py:_on_init():2143] got version response upgrade_message: "wandb version 0.14.0 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-03-17 01:51:22,417 INFO    Thread-8  :93665 [wandb_init.py:init():775] starting run threads in backend
+2023-03-17 01:51:23,848 INFO    Thread-8  :93665 [wandb_run.py:_console_start():2114] atexit reg
+2023-03-17 01:51:23,848 INFO    Thread-8  :93665 [wandb_run.py:_redirect():1969] redirect: SettingsConsole.WRAP_RAW
+2023-03-17 01:51:23,848 INFO    Thread-8  :93665 [wandb_run.py:_redirect():2034] Wrapping output streams.
+2023-03-17 01:51:23,848 INFO    Thread-8  :93665 [wandb_run.py:_redirect():2059] Redirects installed.
+2023-03-17 01:51:23,849 INFO    Thread-8  :93665 [wandb_init.py:init():817] run started, returning control to user process
+2023-03-17 01:52:32,160 INFO    MainThread:93665 [pyagent.py:run():314] Starting sweep agent: entity=cs19b021, project=cs6910-assignment1, count=None

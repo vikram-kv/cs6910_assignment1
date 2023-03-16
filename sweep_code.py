@@ -98,7 +98,6 @@ if __name__ == '__main__':
                         'dataset' : {'value' : args.dataset},
                     }
                 }
-
         sweep_id = wandb.sweep(entity='cs19b021', project='cs6910-assignment1',sweep=sec_sweep_config)
         print(sweep_id)
     else:

@@ -4,6 +4,8 @@ from loss_functions import *
 from optimizers import *
 from tqdm import tqdm
 import wandb
+from sklearn.metrics import confusion_matrix
+import plotly.express as px
 
 class NeuralNetwork:
     def __init__(self, args, num_classes, in_dim):
@@ -146,19 +148,31 @@ class NeuralNetwork:
         y_pred = []
         y_true = []
         total_loss = 0
-        fashion_mnist_labels = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 
+        labels = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 
                                 'Sneaker', 'Bag', 'Ankle boot']
+        # compute pred labels, loss and acc on test data
         for X, y in zip(testbatches[0], testbatches[1]):
-            _, _, _, y_pred, loss = self.optimizer.forward(weights, biases, X, y)
-            pred_labels = np.argmax(y_pred, axis=0)
+            _, _, _, batch_pred, loss = self.optimizer.forward(weights, biases, X, y)
+            batch_pred = np.argmax(batch_pred, axis=0)
             total_loss += loss
-            y_pred += list(pred_labels)
+            y_pred += list(batch_pred)
             y_true += list(y)
         y_pred = np.array(y_pred)
         y_true = np.array(y_true)
         test_loss = total_loss / len(y_pred)
         test_acc = np.mean(np.where(y_pred == y_true, 1, 0))
-        wandb.log({"confusion matrix" : wandb.plot.confusion_matrix(preds=y_pred, y_true=y_true, class_names=fashion_mnist_labels),
+        print(y_pred)
+        print(y_true)
+        print(labels)
+        # code for plotly styled confusion matrix with colorbar
+        cf_matrix = confusion_matrix(y_true, y_pred, labels=np.arange(self.out_layer_size))
+        fig = px.imshow(cf_matrix, labels=dict(x="Predicted", y="True Class", color="Count"),
+                        x=labels, y=labels, title='Confusion Matrix', text_auto=True,
+                        color_continuous_scale=px.colors.sequential.OrRd)
+        fig.update_xaxes(side="top")
+        # log both the confusion matrix from wandb.plot and plotly plot along with loss, acc
+        wandb.log({"confusion matrix 1" : wandb.plot.confusion_matrix(preds=y_pred, y_true=y_true, class_names=labels),
+                    "confusion matrix 2" : fig,
                     "test loss" : test_loss,
                     "test accuracy" : test_acc})
         return test_acc, test_loss 

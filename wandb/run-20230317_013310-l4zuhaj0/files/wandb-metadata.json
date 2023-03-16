@@ -1,0 +1,77 @@
+{
+    "os": "Linux-5.15.0-67-generic-x86_64-with-glibc2.31",
+    "python": "3.9.16",
+    "heartbeatAt": "2023-03-16T20:03:15.778213",
+    "startedAt": "2023-03-16T20:03:10.132622",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/vikram/Desktop/Deep Learning/cs6910_assignment1/log_conf_matrix.py",
+    "codePath": "log_conf_matrix.py",
+    "git": {
+        "remote": "https://github.com/vikram-kv/cs6910_assignment1",
+        "commit": "0f7937c85bb0bbcb5d5afe4b1969990e6a2fd684"
+    },
+    "email": "cs19b021@smail.iitm.ac.in",
+    "root": "/home/vikram/Desktop/Deep Learning/cs6910_assignment1",
+    "host": "VikramUbuntu",
+    "username": "vikram",
+    "executable": "/home/vikram/miniconda3/envs/dlenv/bin/python3",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 2.211625,
+        "min": 800.0,
+        "max": 4100.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 0.893,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 2.4,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 2.4,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 2.4,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 2.4,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 2.4,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 2.4,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 2.4,
+            "min": 800.0,
+            "max": 4100.0
+        }
+    ],
+    "disk": {
+        "total": 88.6217041015625,
+        "used": 31.04199981689453
+    },
+    "memory": {
+        "total": 7.607265472412109
+    }
+}

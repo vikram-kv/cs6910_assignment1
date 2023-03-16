@@ -15,22 +15,22 @@ if __name__ == '__main__':
     wandb.login()
     # here, we define the config for the best hyperparameter set on fashion_mnist
     wconfig = {'epochs' :  20,
-                    'num_hlayers' : 5,
-                    'hidden_size' : 128,
-                    'weight_decay' : 0.05,
-                    'learning_rate' : 4e-4,
-                    'batch_size' : 128,
-                    'loss' : 'cross_entropy',
-                    'optimizer' : 'adam',
-                    'weight_init' : 'xavier',
-                    'activation_function' : 'leakyrelu',
-                    'momentum' : 0.9,
-                    'beta' : 0.95,
-                    'beta1' :  0.9,
-                    'beta2' :  0.999,
-                    'epsilon' :  1e-8,
-                    'dataset': 'fashion_mnist',
-                    }
+                'num_hlayers' : 5,
+                'hidden_size' : 128,
+                'weight_decay' : 0.05,
+                'learning_rate' : 4e-4,
+                'batch_size' : 128,
+                'loss' : 'cross_entropy',
+                'optimizer' : 'adam',
+                'weight_init' : 'xavier',
+                'activation_function' : 'leakyrelu',
+                'momentum' : 0.9,
+                'beta' : 0.95,
+                'beta1' :  0.9,
+                'beta2' :  0.999,
+                'epsilon' :  1e-8,
+                'dataset': 'fashion_mnist',
+                }
 
     (x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
 
@@ -39,7 +39,7 @@ if __name__ == '__main__':
     train_X, val_X, train_y, val_y = train_test_split(x_train, y_train, test_size=0.1, shuffle=True, random_state=42)
     train_X, val_X = train_X.reshape(len(train_X), -1), val_X.reshape(len(val_X),-1)
 
-    # init wandb run and update run name(if given)
+    # init wandb run and update run name
     with wandb.init(entity='cs19b021', project='cs6910-assignment1',config=wconfig,tags=['confusion_matrix']) as run:
         wargs = wandb.config
         nn = NeuralNetwork(wargs, 10, train_X.shape[1])
@@ -54,5 +54,3 @@ if __name__ == '__main__':
         testbatches = nn.make_batches(x_test, y_test, wargs.batch_size)
         tacc, tloss = nn.plot_confusion_matrix(weights, biases, testbatches)
         print(f'test loss = {tloss}; test accuracy = {tacc}')
-        
-    
