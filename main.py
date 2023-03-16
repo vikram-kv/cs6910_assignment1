@@ -130,7 +130,7 @@ if __name__ == '__main__':
         weights, biases = nn.train((train_X, train_y), (val_X, val_y), args.epochs, args.batch_size, args.learning_rate, silent=False, log_wandb=False)
 
     # run the model on (normalized, reshaped) test data and print performance details
-    print('Running model on test data')
+    print('Test Performance')
     x_test = simple_normalize(x_test.astype(np.float64))
     x_test = x_test.reshape(len(x_test), -1)
     testbatches = nn.make_batches(x_test, y_test, args.batch_size)

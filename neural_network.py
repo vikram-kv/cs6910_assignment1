@@ -141,6 +141,28 @@ class NeuralNetwork:
         print(f'{tname} accuracy = {tacc}; {tname} loss = {tloss}')
         return tacc, tloss
 
+    # to log the test loss, test acc and test data confusion matrix in a wandb run
+    def plot_confusion_matrix(self, weights, biases, testbatches):
+        y_pred = []
+        y_true = []
+        total_loss = 0
+        fashion_mnist_labels = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 
+                                'Sneaker', 'Bag', 'Ankle boot']
+        for X, y in zip(testbatches[0], testbatches[1]):
+            _, _, _, y_pred, loss = self.optimizer.forward(weights, biases, X, y)
+            pred_labels = np.argmax(y_pred, axis=0)
+            total_loss += loss
+            y_pred += list(pred_labels)
+            y_true += list(y)
+        y_pred = np.array(y_pred)
+        y_true = np.array(y_true)
+        test_loss = total_loss / len(y_pred)
+        test_acc = np.mean(np.where(y_pred == y_true, 1, 0))
+        wandb.log({"confusion matrix" : wandb.plot.confusion_matrix(preds=y_pred, y_true=y_true, class_names=fashion_mnist_labels),
+                    "test loss" : test_loss,
+                    "test accuracy" : test_acc})
+        return test_acc, test_loss 
+
     # function to shuffle the train batches before each epoch to avoid overfitting.
     # increased val accuracy levels to > 89.2 % for good hyperparameter combinations.
     # important to do this. 
