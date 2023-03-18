@@ -1,4 +1,5 @@
-# Code for wandb sweeping. Has 2 sweep configurations (1 primary, 1 secondary).
+# Code for comparing performance of mse loss against ce loss
+# Compares the losses for 2 different hyperparameter combinations
 import numpy as np
 from activation_functions import *
 from neural_network import *
@@ -37,7 +38,9 @@ def agent_code():
 
 if __name__ == '__main__':
     wandb.login()
-    # here, we just create a new sweep using the primary/secondary configurations and print the id
+    # we do 2 comparisons. config1 compares mse loss vs ce loss for the best hyperparameter combination
+    # config2 compares mse loss vs ce loss for another hyperparameter combination
+    # the second config will illustrate the drastic difference and the need for using ce loss rather than mse loss
     config1 = {'method' : 'grid',
                 'name' : 'mse-ce-sweep1',
                 'metric' : {
@@ -45,23 +48,23 @@ if __name__ == '__main__':
                         'name' : 'validation_acc'
                     }, 
                     'parameters': {
-                        'epochs' :  {'value' : 5},
-                        'num_hlayers' : {'value' : 4},
-                        'hidden_size' : {'value' : 64},
-                        'weight_decay' : {'value' : 0.05},
-                        'learning_rate' : {'value' : 1e-3},
-                        'batch_size' : {'value' : 32},
+                        'epochs' :  {'value' : 20},
+                        'batch_size' : {'value' : 128},
                         'loss' : {'values' : ['cross_entropy', 'mean_squared_error']},
                         'optimizer' : {'value' : 'adam'},
-                        'weight_init' : {'value' : 'xavier'},
-                        'activation_function' : {'value' : 'relu'},
+                        'learning_rate' : {'value' : 0.001},
                         'momentum' : {'value' : 0.9},
                         'beta' : {'value' : 0.95},
                         'beta1' : {'value' : 0.9},
                         'beta2' : {'value' : 0.999},
                         'epsilon' : {'value' : 1e-8},
+                        'weight_decay' : {'value' : 0.02},
+                        'weight_init' : {'value' : 'xavier'},
+                        'num_hlayers' : {'value' : 5},
+                        'hidden_size' : {'value' : 128},
+                        'activation_function' : {'value' : 'tanh'},
                         'dataset' : {'value' : 'fashion_mnist'},
-                    },
+                    }
                 }
     config2 = {'method' : 'grid',
             'name' : 'mse-ce-sweep2',
@@ -71,20 +74,20 @@ if __name__ == '__main__':
                 }, 
             'parameters': {
                     'epochs' :  {'value' : 5},
-                    'num_hlayers' : {'value' : 4},
-                    'hidden_size' : {'value' : 64},
-                    'weight_decay' : {'value' : 0.05},
-                    'learning_rate' : {'value' : 1e-3},
                     'batch_size' : {'value' : 32},
                     'loss' : {'values' : ['cross_entropy', 'mean_squared_error']},
                     'optimizer' : {'value' : 'sgd'},
-                    'weight_init' : {'value' : 'random'},
-                    'activation_function' : {'value' : 'sigmoid'},
+                    'learning_rate' : {'value' : 1e-3},
                     'momentum' : {'value' : 0.9},
                     'beta' : {'value' : 0.95},
                     'beta1' : {'value' : 0.9},
                     'beta2' : {'value' : 0.999},
                     'epsilon' : {'value' : 1e-8},
+                    'weight_decay' : {'value' : 0.05},
+                    'weight_init' : {'value' : 'random'},
+                    'num_hlayers' : {'value' : 4},
+                    'hidden_size' : {'value' : 64},
+                    'activation_function' : {'value' : 'sigmoid'},
                     'dataset' : {'value' : 'fashion_mnist'},
                 },
             }

@@ -1,4 +1,4 @@
-# code to generate and plot the confusion matrix for the test data of the fashion_mnist dataset
+# code to generate and plot the confusion matrix for the test data of the fashion_mnist dataset.
 # the best hyperparameter combination has been hardcoded here.
 import numpy as np
 from activation_functions import *
@@ -15,20 +15,20 @@ if __name__ == '__main__':
     wandb.login()
     # here, we define the config for the best hyperparameter set on fashion_mnist
     wconfig = {'epochs' :  20,
-                'num_hlayers' : 5,
-                'hidden_size' : 128,
-                'weight_decay' : 0.05,
-                'learning_rate' : 4e-4,
                 'batch_size' : 128,
                 'loss' : 'cross_entropy',
                 'optimizer' : 'adam',
-                'weight_init' : 'xavier',
-                'activation_function' : 'leakyrelu',
+                'learning_rate' : 0.001,
                 'momentum' : 0.9,
                 'beta' : 0.95,
                 'beta1' :  0.9,
                 'beta2' :  0.999,
                 'epsilon' :  1e-8,
+                'weight_decay' : 0.02,
+                'weight_init' : 'xavier',
+                'num_hlayers' : 5,
+                'hidden_size' : 128,
+                'activation_function' : 'tanh',
                 'dataset': 'fashion_mnist',
                 }
 

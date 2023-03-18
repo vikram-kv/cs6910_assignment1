@@ -1,3 +1,7 @@
+# Contains all the 6 optimizers implemented in the assignment.
+# They are ['sgd', 'momentum', 'nag', 'rmsprop', 'adam', 'nadam']
+# New optimizers may be derived from the base class `Optimizer` by implementing
+# forward, backward and update_parameters functions
 import numpy as np
 
 # all optimizers must have functions "forward", "backward", "update_parameters". 
@@ -30,6 +34,7 @@ class sgd(Optimizer):
 
     def update_parameters(self, weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient):
         eta = learning_rate
+        # For all the layers, sgd update rule is executed
         for idx in range(1, self.nn.hlayercount + 2):
             weights[idx] -= eta * batch_weight_gradient[idx]
             biases[idx] -= eta * batch_bias_gradient[idx]
@@ -45,7 +50,7 @@ class momentum(Optimizer):
     
     def update_parameters(self, weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient):
         eta, beta = learning_rate, self.beta
-        # momentum update rule
+        # momentum update rule is executed for all the layers
         for idx in range(1, self.nn.hlayercount + 2):
             self.weight_momentums[idx] = beta * self.weight_momentums[idx] + eta * batch_weight_gradient[idx]
             self.bias_momentums[idx] = beta * self.bias_momentums[idx] + eta * batch_bias_gradient[idx]
@@ -59,10 +64,13 @@ class nag(Optimizer):
         self.nn = nn
         self.weight_momentums, self.bias_momentums = get_lists(nn)
     
-    # function to compute partially updated weights using momentum history/nesterov trick
+    # function to compute partially updated weights for performing nesterov trick [Look before you leap]
+    # we need to use these partially updated weights/biases for the forward pass and backward pass for
+    # calculating gradients
     def get_partial_update_parameters(self, weights, biases):
         beta = self.beta
         partial_updated_weights, partial_updated_biases = dict(), dict()
+        # the new weights/biases for the nn are calculated using the history
         for idx in range(1, self.nn.hlayercount + 2):
             partial_updated_weights[idx] = weights[idx] - beta * self.weight_momentums[idx]
             partial_updated_biases[idx] = biases[idx] - beta * self.bias_momentums[idx]
@@ -82,6 +90,7 @@ class nag(Optimizer):
         eta = learning_rate
         beta = self.beta
 
+        # Normal momentum update for all layers as nesterov trick is applied in forward and backward passes
         for idx in range(1, self.nn.hlayercount + 2):
             self.weight_momentums[idx] = beta * self.weight_momentums[idx] + eta * batch_weight_gradient[idx]
             self.bias_momentums[idx] = beta * self.bias_momentums[idx] + eta * batch_bias_gradient[idx]

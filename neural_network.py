@@ -161,9 +161,6 @@ class NeuralNetwork:
         y_true = np.array(y_true)
         test_loss = total_loss / len(y_pred)
         test_acc = np.mean(np.where(y_pred == y_true, 1, 0))
-        print(y_pred)
-        print(y_true)
-        print(labels)
         # code for plotly styled confusion matrix with colorbar
         cf_matrix = confusion_matrix(y_true, y_pred, labels=np.arange(self.out_layer_size))
         fig = px.imshow(cf_matrix, labels=dict(x="Predicted", y="True Class", color="Count"),

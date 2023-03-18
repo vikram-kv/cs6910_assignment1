@@ -1,4 +1,10 @@
 # Code for wandb sweeping. Has 2 sweep configurations (1 primary, 1 secondary).
+# use $ python3 sweep_code.py to start a new sweep server [after changing the arguments to wandb.sweep() 
+#                                                           to use the desired sweep configuration]
+#       This will print the sweep_id
+# use $ python3 sweep_code.py -sid `sweep_id` to start the sweep agent and begin searching
+# For parallelization, run the command on multiple terminals/colab instances. I used 15 free 
+# colab CPU instances simulataneously to speed things up!
 import numpy as np
 from activation_functions import *
 from neural_network import *
@@ -46,7 +52,9 @@ if __name__ == '__main__':
     wandb.login()
     args = gen_parser().parse_args()
     if (args.sid == None):
-        # here, we just create a new sweep using the primary/secondary configurations and print the id
+        # The primary sweep config performs a random search over the large number of hyperparameter
+        # combinations. The good combinations from here are picked and used in secondary sweep to
+        # fine-tune (learning_rate, weight_decay) to achieve better performance.
         primary_sweep_config = {'method' : 'random',
                         'name' : 'new-primary-sweep',
                         'metric' : {
@@ -73,6 +81,8 @@ if __name__ == '__main__':
                             },
                             'run_cap' : 400
                         }
+        # the configuration for grid search using narrowed down hyperparameters from primary-sweep
+        # here, the interest is to fine-tune the (learning_rate, weight_decay) more carefully.
         sec_sweep_config = {'method' : 'grid',
                 'name' : 'new-secondary-sweep',
                 'metric' : {
@@ -98,6 +108,7 @@ if __name__ == '__main__':
                         'dataset' : {'value' : args.dataset},
                     }
                 }
+
         sweep_id = wandb.sweep(entity='cs19b021', project='cs6910-assignment1',sweep=sec_sweep_config)
         print(sweep_id)
     else:

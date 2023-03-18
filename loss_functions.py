@@ -1,3 +1,5 @@
+# Contains the code for 2 loss functions[MeanSquaredError Loss, Cross_Entropy Loss].
+# New Loss functions may be added here from the pattern used for the above loss functions.
 import numpy as np
 
 # All Loss functions must implement the function compute_loss_and_final_layer_gradients_preact that 
