@@ -2,6 +2,7 @@
 First Assignment of the Deep Learning Course (CS6910), Summer 2023.
 
 **Wandb Report** : [link](https://wandb.ai/cs19b021/cs6910-assignment1/reports/CS6910-Assignment-1--VmlldzozNzU3NDkz)
+**Experimental Learnable LeakyRelu Framework** : [link](https://github.com/vikram-kv/cs6910_a1_experiment_learnableleakyrelu) - Achieves > 88% val acc in the run with the default values very quickly. Experimental as it has not been well-tested.
 
 # Code Details
 
@@ -16,7 +17,7 @@ First Assignment of the Deep Learning Course (CS6910), Summer 2023.
 7. **neural_network.py** - Contains implementation of the neural network with forward(), backward(), train() and test() functions. The most important file in the code. Initialization techniques implemented are Random initialization, He initialization and Xavier initialization. Also has functions for shuffling the train batches across epochs, and for generating and logging confusion matrix plots.
 8. **optimizers.py** - Contains the various optimizers supported by the project. These are sgd, momentum, nag, rmsprop, adam and nadam.
 9. **sweep_code.py** - Contains the code for starting a wandb sweep server. By default, a sweep server is started and a sweep_id is printed. For parallelism, when -sid `sweep_id` is supplied in cmdline, a sweep agent is started that receives, trains and tests a hyperparameter combination. Very useful for parallelizing with multiple Colab instances/CPUs.
-10. **train.py** - Contains code for parsing commandline arguments, loading dataset, performing train/validation split and running the model. Wandb logging is done optionally. [See Usage]
+10. **train.py** - Contains code for parsing commandline arguments, loading dataset, performing train/validation split and running the model. Wandb logging is done optionally. [See Usage] Additionally, contains a function for performing affine transforms-based dataset augmentation.
 
 ## Usage
 
@@ -38,3 +39,5 @@ To run with the default hyperparameter setting on fashion_mnist dataset and log 
 python train.py --wandb_entity [yourwandbentityname] --wandb_project [yourprojectname] -uw 1 -rn [run_name]
 ```
 Ensure that you are already logged into wandb locally with the credentials of [yourwandbentityname] and [run_name] is the name of the run in wandb dashboard.
+
+Other hyperparameter combinations may be tested using the details from the help menu.
