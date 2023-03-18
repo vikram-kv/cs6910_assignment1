@@ -3,7 +3,7 @@ First Assignment of the Deep Learning Course (CS6910), Summer 2023.
 
 **Wandb Report** : [link](https://wandb.ai/cs19b021/cs6910-assignment1/reports/CS6910-Assignment-1--VmlldzozNzU3NDkz)
 
-**Experimental Learnable LeakyRelu Framework** : [link](https://github.com/vikram-kv/cs6910_a1_experiment_learnableleakyrelu) - Achieves > 88% val acc in the run with the default values very quickly. Experimental as it has not been well-tested.
+**Experimental Learnable LeakyRelu Framework** : [link](https://github.com/vikram-kv/cs6910_a1_experiment_learnableleakyrelu) - Achieves 87.58% val acc in 6 epochs with the default hyperparameters. Experimental as it has not been well-tested over multiple hyperparameter combinations and sgd update rule is used to update gradients for leakyrelu negative region parameter(we call this alpha).
 
 # Code Details
 
