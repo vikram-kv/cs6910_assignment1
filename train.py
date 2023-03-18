@@ -14,7 +14,8 @@ from skimage.transform import AffineTransform
 from skimage import transform
 from scipy import ndimage
 
-# function to create a parser that parses the commandline arguments
+# function to create a parser that parses the commandline arguments. Default values are the values from
+# the best hyperparameter combination found from wandb sweeps.
 def gen_parser():
     parser = ap.ArgumentParser(description='Multi-Layer Feedfoward Neural Network with Various Optimizers')
     parser.add_argument('-wp','--wandb_project',dest='wdp', default='cs6910-assignment1', help='Project name used to track experiments in Weights & Biases dashboard')
@@ -81,7 +82,6 @@ def augment_train_data(x_train, y_train, rd_seed, num_dup):
     perm = rd.permutation(len(x_train_augment))
     return x_train_augment[perm], y_train_augment[perm]
 
-# change default values to reflect best results later
 if __name__ == '__main__':
     parser = gen_parser()
     args = parser.parse_args()

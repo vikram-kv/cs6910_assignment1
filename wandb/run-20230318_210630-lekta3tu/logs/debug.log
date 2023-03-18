@@ -1,0 +1,32 @@
+2023-03-18 21:06:30,775 INFO    MainThread:34108 [wandb_setup.py:_flush():68] Configure stats pid to 34108
+2023-03-18 21:06:30,776 INFO    MainThread:34108 [wandb_setup.py:_flush():68] Loading settings from /home/vikram/.config/wandb/settings
+2023-03-18 21:06:30,776 INFO    MainThread:34108 [wandb_setup.py:_flush():68] Loading settings from /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/settings
+2023-03-18 21:06:30,776 INFO    MainThread:34108 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2023-03-18 21:06:30,776 INFO    MainThread:34108 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'mnist_run.py', 'program': '/home/vikram/Desktop/Deep Learning/cs6910_assignment1/mnist_run.py'}
+2023-03-18 21:06:30,776 INFO    MainThread:34108 [wandb_init.py:_log_setup():492] Logging user logs to /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230318_210630-lekta3tu/logs/debug.log
+2023-03-18 21:06:30,776 INFO    MainThread:34108 [wandb_init.py:_log_setup():493] Logging internal logs to /home/vikram/Desktop/Deep Learning/cs6910_assignment1/wandb/run-20230318_210630-lekta3tu/logs/debug-internal.log
+2023-03-18 21:06:30,776 INFO    MainThread:34108 [wandb_init.py:init():532] calling init triggers
+2023-03-18 21:06:30,776 INFO    MainThread:34108 [wandb_init.py:init():538] wandb.init called with sweep_config: {}
+config: {'epochs': 5, 'batch_size': 128, 'loss': 'cross_entropy', 'optimizer': 'adam', 'learning_rate': 0.001, 'momentum': 0.9, 'beta': 0.95, 'beta1': 0.9, 'beta2': 0.999, 'epsilon': 1e-08, 'weight_decay': 0.02, 'weight_init': 'xavier', 'num_hlayers': 5, 'hidden_size': 128, 'activation_function': 'tanh', 'dataset': 'fashion_mnist'}
+2023-03-18 21:06:30,776 INFO    MainThread:34108 [wandb_init.py:init():588] starting backend
+2023-03-18 21:06:30,777 INFO    MainThread:34108 [wandb_init.py:init():592] setting up manager
+2023-03-18 21:06:30,782 INFO    MainThread:34108 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-03-18 21:06:30,786 INFO    MainThread:34108 [wandb_init.py:init():599] backend started and connected
+2023-03-18 21:06:30,792 INFO    MainThread:34108 [wandb_init.py:init():687] updated telemetry
+2023-03-18 21:06:30,842 INFO    MainThread:34108 [wandb_init.py:init():727] communicating run to backend with 60.0 second timeout
+2023-03-18 21:06:32,613 INFO    MainThread:34108 [wandb_run.py:_on_init():2134] communicating current version
+2023-03-18 21:06:32,873 INFO    MainThread:34108 [wandb_run.py:_on_init():2143] got version response upgrade_message: "wandb version 0.14.0 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-03-18 21:06:32,874 INFO    MainThread:34108 [wandb_init.py:init():775] starting run threads in backend
+2023-03-18 21:06:34,627 INFO    MainThread:34108 [wandb_run.py:_console_start():2114] atexit reg
+2023-03-18 21:06:34,627 INFO    MainThread:34108 [wandb_run.py:_redirect():1969] redirect: SettingsConsole.WRAP_RAW
+2023-03-18 21:06:34,627 INFO    MainThread:34108 [wandb_run.py:_redirect():2034] Wrapping output streams.
+2023-03-18 21:06:34,627 INFO    MainThread:34108 [wandb_run.py:_redirect():2059] Redirects installed.
+2023-03-18 21:06:34,628 INFO    MainThread:34108 [wandb_init.py:init():817] run started, returning control to user process
+2023-03-18 21:06:44,728 INFO    MainThread:34108 [wandb_run.py:_finish():1854] finishing run cs19b021/cs6910-assignment1/lekta3tu
+2023-03-18 21:06:44,728 INFO    MainThread:34108 [wandb_run.py:_atexit_cleanup():2083] got exitcode: 1
+2023-03-18 21:06:44,728 INFO    MainThread:34108 [wandb_run.py:_restore():2066] restore
+2023-03-18 21:06:44,728 INFO    MainThread:34108 [wandb_run.py:_restore():2072] restore done
+2023-03-18 21:06:53,427 INFO    MainThread:34108 [wandb_run.py:_footer_history_summary_info():3442] rendering history
+2023-03-18 21:06:53,428 INFO    MainThread:34108 [wandb_run.py:_footer_history_summary_info():3474] rendering summary
+2023-03-18 21:06:53,433 INFO    MainThread:34108 [wandb_run.py:_footer_sync_info():3398] logging synced files

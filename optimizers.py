@@ -107,6 +107,7 @@ class rmsprop(Optimizer):
 
     def update_parameters(self, weights, biases, learning_rate, batch_weight_gradient, batch_bias_gradient):
         eta, beta, eps = learning_rate, self.beta, self.epsilon
+        # apply rmsprop update rule for all layers
         for idx in range(1, self.nn.hlayercount + 2):
             self.discounted_squared_weights[idx] = beta * self.discounted_squared_weights[idx] + (1-beta) * np.square(batch_weight_gradient[idx])
             self.discounted_squared_biases[idx] = beta * self.discounted_squared_biases[idx] + (1-beta) * np.square(batch_bias_gradient[idx])
