@@ -6,8 +6,11 @@ from activation_functions import *
 from neural_network import *
 import wandb
 from sklearn.model_selection import train_test_split
-from sklearn import preprocessing
 from keras.datasets import fashion_mnist, mnist
+
+# the below modules are not used in the execution. But certain experiment functions reference them in this
+# file
+from sklearn import preprocessing
 import argparse as ap
 from tqdm import tqdm
 from skimage.transform import AffineTransform

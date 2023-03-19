@@ -5,7 +5,6 @@ from loss_functions import *
 from optimizers import *
 from tqdm import tqdm
 import wandb
-from sklearn.metrics import confusion_matrix
 import plotly.express as px
 
 class NeuralNetwork:
@@ -176,6 +175,13 @@ class NeuralNetwork:
         print(f'{tname} accuracy = {tacc}; {tname} loss = {tloss}')
         return tacc, tloss
 
+    def gen_confusion_matrix(self, y_true, y_pred, labels):
+        num_classes = len(labels)
+        cf_matrix = np.zeros((num_classes, num_classes))
+        for pr, tr in zip(y_pred, y_true):
+            cf_matrix[tr, pr] += 1
+        return cf_matrix
+
     # to log the test loss, test acc and test data confusion matrix in a wandb run
     def plot_confusion_matrix(self, weights, biases, testbatches):
         y_pred = []
@@ -195,7 +201,7 @@ class NeuralNetwork:
         test_loss = total_loss / len(y_pred)
         test_acc = np.mean(np.where(y_pred == y_true, 1, 0))
         # code for plotly styled confusion matrix with colorbar
-        cf_matrix = confusion_matrix(y_true, y_pred, labels=np.arange(self.out_layer_size))
+        cf_matrix = self.gen_confusion_matrix(y_true, y_pred, labels=np.arange(self.out_layer_size))
         fig = px.imshow(cf_matrix, labels=dict(x="Predicted", y="True Class", color="Count"),
                         x=labels, y=labels, title='Confusion Matrix', text_auto=True,
                         color_continuous_scale=px.colors.sequential.OrRd)
