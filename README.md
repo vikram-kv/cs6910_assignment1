@@ -1,5 +1,5 @@
-# CS6910 Assignment 1
-First Assignment of the Deep Learning Course (CS6910), Summer 2023.
+# CS6910 Project 1
+First Project of the Deep Learning Course (CS6910), Summer 2023.
 
 **Wandb Report** : [link](https://wandb.ai/cs19b021/cs6910-assignment1/reports/CS6910-Assignment-1--VmlldzozNzU3NDkz)
 
